@@ -76,7 +76,7 @@
         </button>
       </form>
 
-      <!-- Perfiles recientes guardados en localStorage para acceso en 1 clic -->
+      <!-- Perfiles recientes guardados en localStorage -->
       <div id="previous-users-box" class="hidden mt-6 pt-5 border-t border-slate-200 dark:border-slate-800 text-left">
         <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Acceso rápido (perfiles recientes):</p>
         <div id="previous-users-list" class="flex flex-wrap gap-2"></div>
@@ -85,7 +85,7 @@
   </div>
 
   <!-- =====================================================================
-       CABECERA FIJA CON 3 PESTAÑAS DE NAVEGACIÓN
+       CABECERA FIJA CON 4 PESTAÑAS DE NAVEGACIÓN
        ===================================================================== -->
   <header class="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
@@ -99,16 +99,19 @@
         </span>
       </button>
 
-      <!-- Navegación central (3 pestañas principales en escritorio) -->
-      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/70 dark:border-slate-700">
-        <button type="button" data-nav="home" class="nav-tab px-4 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
-          Cuestionario
+      <!-- Navegación central (4 pestañas en escritorio) -->
+      <nav class="hidden lg:flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/70 dark:border-slate-700">
+        <button type="button" data-nav="home" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
+          Configurar Test
         </button>
-        <button type="button" data-nav="syllabus" class="nav-tab px-4 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
+        <button type="button" data-nav="syllabus" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
           Índice de contenidos
         </button>
-        <button type="button" data-nav="ranking" class="nav-tab px-4 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
+        <button type="button" data-nav="ranking" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
           Ranking Global
+        </button>
+        <button type="button" data-nav="history" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-semibold transition cursor-pointer">
+          Mi historial
         </button>
       </nav>
 
@@ -118,7 +121,7 @@
           id="change-user-btn"
           type="button"
           title="Cambiar de usuario"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition cursor-pointer max-w-[200px] sm:max-w-[270px]"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition cursor-pointer max-w-[190px] sm:max-w-[260px]"
         >
           <span class="text-sm">👤</span>
           <span id="header-user-name" class="truncate">Alumno</span>
@@ -137,17 +140,20 @@
       </div>
     </div>
 
-    <!-- Navegación móvil (3 pestañas principales) -->
-    <div class="md:hidden border-t border-slate-100 dark:border-slate-800 px-3 py-1.5 bg-slate-50/90 dark:bg-slate-900">
-      <nav class="grid grid-cols-3 gap-1.5">
+    <!-- Navegación móvil / tablet (4 pestañas) -->
+    <div class="lg:hidden border-t border-slate-100 dark:border-slate-800 px-3 py-1.5 bg-slate-50/90 dark:bg-slate-900">
+      <nav class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
         <button type="button" data-nav="home" class="nav-tab py-1.5 px-2 rounded-lg text-xs font-semibold text-center truncate transition cursor-pointer">
-          Cuestionario
+          Configurar Test
         </button>
         <button type="button" data-nav="syllabus" class="nav-tab py-1.5 px-2 rounded-lg text-xs font-semibold text-center truncate transition cursor-pointer">
           Índice de contenidos
         </button>
         <button type="button" data-nav="ranking" class="nav-tab py-1.5 px-2 rounded-lg text-xs font-semibold text-center truncate transition cursor-pointer">
           Ranking Global
+        </button>
+        <button type="button" data-nav="history" class="nav-tab py-1.5 px-2 rounded-lg text-xs font-semibold text-center truncate transition cursor-pointer">
+          Mi historial
         </button>
       </nav>
     </div>
@@ -159,7 +165,7 @@
   <main class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
 
     <!-- -------------------------------------------------------------------
-         VISTA 1: CONFIGURACIÓN DEL CUESTIONARIO
+         VISTA 1: CONFIGURAR TEST
          ------------------------------------------------------------------- -->
     <section id="view-home" class="space-y-6">
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 sm:p-8">
@@ -171,7 +177,7 @@
             Comunicaciones Industriales (COI)
           </h1>
           <p id="home-subtitle" class="mt-1.5 text-sm sm:text-base text-slate-500 dark:text-slate-400">
-            Banco completo de 127 preguntas únicas sobre células robotizadas, PROFINET, buses de campo, arquitectura y diagnóstico.
+            Banco completo de 138 preguntas únicas con explicación técnica sobre buses de campo, célula ABB cableada y EtherNet/IP, arquitectura y diagnóstico.
           </p>
         </div>
 
@@ -194,7 +200,7 @@
                 type="button"
                 class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition cursor-pointer"
               >
-                Deseleccionar
+                Ninguno
               </button>
             </div>
           </div>
@@ -227,7 +233,7 @@
                 <option value="20" selected>20 preguntas</option>
                 <option value="30">30 preguntas</option>
                 <option value="50">50 preguntas</option>
-                <option value="all">Todas (127)</option>
+                <option value="all">Todas (138)</option>
               </select>
             </div>
 
@@ -241,7 +247,7 @@
                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#2563eb]"
               >
                 <option value="exam" selected>Modo Examen (corrección al final)</option>
-                <option value="practice">Modo Práctica (corrección inmediata con explicación tras cada pregunta)</option>
+                <option value="practice">Modo Práctica (corrección inmediata con explicación)</option>
               </select>
             </div>
 
@@ -255,7 +261,7 @@
                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#2563eb]"
               >
                 <option value="0" selected>Sin penalización (0)</option>
-                <option value="0.3333333333">Con penalización (-0.33 por fallo)</option>
+                <option value="0.3333333333">-0.33 por error</option>
               </select>
             </div>
           </div>
@@ -298,7 +304,7 @@
             <span>→</span>
           </button>
           <p id="available-pool-hint" class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 text-center sm:text-right">
-            127 preguntas seleccionadas en los bloques activos
+            138 preguntas disponibles en los bloques seleccionados
           </p>
         </div>
       </div>
@@ -307,19 +313,19 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 text-center shadow-sm">
           <div id="metric-questions" class="text-2xl sm:text-3xl font-extrabold text-[#2563eb]">20</div>
-          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">preguntas en el test</p>
+          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">preguntas seleccionadas</p>
         </div>
         <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 text-center shadow-sm">
           <div id="metric-blocks" class="text-2xl sm:text-3xl font-extrabold text-[#4f46e5]">5 / 5</div>
-          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">bloques seleccionados</p>
+          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">bloques activos</p>
         </div>
         <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 text-center shadow-sm">
-          <div id="metric-pool" class="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">127</div>
-          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">preguntas disponibles</p>
+          <div id="metric-pool" class="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">138</div>
+          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">con explicación técnica</p>
         </div>
         <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 text-center shadow-sm">
           <div class="text-2xl sm:text-3xl font-extrabold text-[#16a34a]">10</div>
-          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">calificación máxima</p>
+          <p class="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">nota sobre 10</p>
         </div>
       </div>
     </section>
@@ -345,7 +351,7 @@
               type="button"
               class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition cursor-pointer"
             >
-              Navegación ▾
+              Mapa rápido ▾
             </button>
             <span id="quiz-timer" class="px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-[#2563eb] dark:text-blue-400 font-mono text-sm font-bold">
               ⏱ 00:00
@@ -361,7 +367,7 @@
         <!-- Panel de navegación rápida por número de pregunta -->
         <div id="quiz-question-map" class="mb-6 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5 text-[11px] text-slate-500 dark:text-slate-400">
-            <span class="font-semibold">Salto rápido por pregunta:</span>
+            <span class="font-semibold">Navegación rápida entre preguntas:</span>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-indigo-600 inline-block"></span> Actual</span>
               <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-[#2563eb] inline-block"></span> Respondida</span>
@@ -376,7 +382,7 @@
         <!-- Etiqueta del bloque temático -->
         <div class="mb-3">
           <span id="quiz-block-badge" class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold bg-indigo-50 text-[#4f46e5] dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900">
-            Bloque 1 · Célula Robotizada Cableada
+            Bloque 1 · Buses de Campo y Redes Industriales
           </span>
         </div>
 
@@ -391,14 +397,14 @@
         <!-- Explicación inmediata en Modo Práctica -->
         <div id="practice-feedback" class="hidden mb-5 p-4 rounded-xl border text-sm leading-relaxed"></div>
 
-        <!-- Botón Dejar en blanco / Limpiar respuesta -->
+        <!-- Botón Dejar en blanco / Borrar selección -->
         <div class="flex justify-end mb-6">
           <button
             id="clear-answer-btn"
             type="button"
             class="text-xs font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 underline underline-offset-2 transition cursor-pointer disabled:opacity-40 disabled:no-underline disabled:cursor-not-allowed"
           >
-            Dejar en blanco / Limpiar respuesta
+            Dejar en blanco / Borrar selección
           </button>
         </div>
 
@@ -482,7 +488,7 @@
           </div>
           <div class="col-span-2 sm:col-span-1 p-3.5 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-900">
             <div id="stat-time" class="text-2xl font-extrabold text-[#4f46e5] dark:text-indigo-400 font-mono">00:00</div>
-            <div class="text-xs font-semibold text-indigo-800 dark:text-indigo-300 mt-0.5">Tiempo total</div>
+            <div class="text-xs font-semibold text-indigo-800 dark:text-indigo-300 mt-0.5">Tiempo empleado</div>
           </div>
         </div>
 
@@ -493,38 +499,38 @@
             type="button"
             class="hidden px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold shadow-sm transition cursor-pointer"
           >
-            🔁 Repasar solo falladas / en blanco (<span id="failed-count-label">0</span>)
-          </button>
-          <button
-            id="view-ranking-from-results-btn"
-            type="button"
-            class="px-5 py-3 rounded-xl bg-[#2563eb] hover:bg-blue-700 text-white text-sm font-bold shadow-sm transition cursor-pointer"
-          >
-            🏆 Ver Ranking Global
+            🔁 Repasar solo las falladas (<span id="failed-count-label">0</span>)
           </button>
           <button
             id="back-home-btn"
             type="button"
             class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-sm font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer"
           >
-            Nuevo cuestionario
+            Nuevo test
+          </button>
+          <button
+            id="view-ranking-from-results-btn"
+            type="button"
+            class="px-5 py-3 rounded-xl bg-[#2563eb] hover:bg-blue-700 text-white text-sm font-bold shadow-sm transition cursor-pointer"
+          >
+            🏆 Ver Ranking
           </button>
         </div>
       </div>
 
-      <!-- Revisión completa con filtros -->
+      <!-- Revisión detallada con filtros -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 sm:p-8">
         <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Revisión de respuestas</h3>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Revisión detallada de respuestas</h3>
           <div class="flex flex-wrap gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
             <button type="button" data-review-filter="all" class="review-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer">
               Todas
             </button>
             <button type="button" data-review-filter="incorrect" class="review-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer">
-              Solo falladas
+              Falladas / En blanco
             </button>
             <button type="button" data-review-filter="correct" class="review-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer">
-              Solo acertadas
+              Correctas
             </button>
           </div>
         </div>
@@ -542,11 +548,11 @@
           <div>
             <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">📚 Índice de contenidos</h2>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Estructura temática del banco de preguntas de Comunicaciones Industriales (COI)
+              Distribución temática del banco completo de Comunicaciones Industriales (COI)
             </p>
           </div>
           <span id="index-total-badge" class="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-[#2563eb] dark:text-blue-400 text-xs font-bold">
-            127 preguntas en total
+            138 preguntas en total
           </span>
         </div>
 
@@ -566,10 +572,9 @@
     </section>
 
     <!-- -------------------------------------------------------------------
-         VISTA 5: RANKING GLOBAL EN TIEMPO REAL + MI HISTORIAL
+         VISTA 5: RANKING GLOBAL EN TIEMPO REAL
          ------------------------------------------------------------------- -->
     <section id="view-ranking" class="hidden space-y-6">
-      <!-- Tarjeta Ranking Global -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
         <div class="px-5 sm:px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -583,7 +588,7 @@
               </span>
             </div>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Clasificación compartida en tiempo real de todos los alumnos ordenada por <strong>Nota (/10)</strong> y <strong>menor tiempo</strong>.
+              Clasificación compartida en vivo ordenada por <strong>Nota (/10)</strong>, <strong>mayor nº de aciertos</strong> y <strong>menor tiempo</strong>.
             </p>
           </div>
 
@@ -597,9 +602,9 @@
           </button>
         </div>
 
-        <!-- Banner informativo solo si falla la conexión con Firestore -->
+        <!-- Banner informativo solo si se activa respaldo local -->
         <div id="local-fallback-banner" class="hidden px-5 sm:px-6 py-3.5 bg-amber-50/90 dark:bg-amber-950/40 border-b border-amber-200/80 dark:border-amber-900/70 text-xs text-amber-900 dark:text-amber-200">
-          ⚠️ <strong>Respaldo local activo:</strong> No se pudo conectar con Firestore en este momento (revisa tu red o las reglas de seguridad de Firestore en Firebase Console). Se muestran las puntuaciones guardadas en este navegador.
+          ⚠️ <strong>Respaldo local activo:</strong> No se pudo conectar con Firestore en este momento (comprueba tu conexión o las reglas de seguridad de Firestore en Firebase Console). Se muestran las puntuaciones guardadas en este navegador.
         </div>
 
         <!-- Filtros del Ranking Global -->
@@ -630,7 +635,7 @@
               <option value="20">20</option>
               <option value="30">30</option>
               <option value="50">50</option>
-              <option value="127">127</option>
+              <option value="138">138</option>
             </select>
           </div>
 
@@ -653,7 +658,7 @@
             Aún no hay puntuaciones registradas para este filtro. ¡Completa un cuestionario para inaugurar el Ranking Global!
           </p>
           <button type="button" data-nav="home" class="px-5 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-bold hover:bg-blue-700 transition cursor-pointer">
-            Ir al cuestionario
+            Ir a Configurar Test
           </button>
         </div>
 
@@ -675,14 +680,35 @@
           </table>
         </div>
       </div>
+    </section>
 
-      <!-- Tabla Mi historial debajo del Ranking Global -->
+    <!-- -------------------------------------------------------------------
+         VISTA 6: MI HISTORIAL (PESTAÑA DEDICADA)
+         ------------------------------------------------------------------- -->
+    <section id="view-history" class="hidden space-y-6">
+      <!-- Resumen rápido del alumno -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Intentos realizados</p>
+          <p id="hist-stat-count" class="mt-1 text-2xl font-extrabold text-[#2563eb]">0</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Nota media (/10)</p>
+          <p id="hist-stat-avg" class="mt-1 text-2xl font-extrabold text-[#4f46e5]">0.00</p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Mejor nota (/10)</p>
+          <p id="hist-stat-best" class="mt-1 text-2xl font-extrabold text-[#16a34a]">0.00</p>
+        </div>
+      </div>
+
+      <!-- Tabla de intentos personales -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
         <div class="px-5 sm:px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">📋 Mi historial</h3>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">📋 Mi historial</h2>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Intentos guardados de <strong id="history-user-label" class="text-slate-700 dark:text-slate-200">Alumno</strong>
+              Registro personal de <strong id="history-user-label" class="text-slate-700 dark:text-slate-200">Alumno</strong>
             </p>
           </div>
           <button
@@ -690,14 +716,17 @@
             type="button"
             class="px-3.5 py-2 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50/70 hover:bg-red-100 dark:bg-red-950/40 dark:hover:bg-red-950/70 text-[#dc2626] dark:text-red-400 text-xs font-semibold transition cursor-pointer"
           >
-            Borrar mi historial local
+            Borrar historial local
           </button>
         </div>
 
         <div id="history-empty" class="p-8 text-center">
-          <p class="text-sm text-slate-500 dark:text-slate-400">
-            Todavía no tienes intentos registrados con este usuario.
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+            Todavía no tienes intentos registrados con este perfil.
           </p>
+          <button type="button" data-nav="home" class="px-5 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-bold hover:bg-blue-700 transition cursor-pointer">
+            Comenzar mi primer test
+          </button>
         </div>
 
         <div id="history-table-wrapper" class="hidden overflow-x-auto">
@@ -707,6 +736,7 @@
                 <th class="py-3 px-4">#</th>
                 <th class="py-3 px-4">Fecha</th>
                 <th class="py-3 px-4">Bloques</th>
+                <th class="py-3 px-4">Modo</th>
                 <th class="py-3 px-4">Nota</th>
                 <th class="py-3 px-4">Aciertos</th>
                 <th class="py-3 px-4">Tiempo</th>
@@ -754,7 +784,7 @@
   </footer>
 
   <!-- =====================================================================
-       LÓGICA DE LA APLICACIÓN, FIREBASE SDK v10 Y BANCO COMPLETO DE 127 PREGUNTAS
+       LÓGICA DE LA APLICACIÓN, FIREBASE SDK v10 Y BANCO COMPLETO DE 138 PREGUNTAS
        ===================================================================== -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -762,7 +792,7 @@
     import { getFirestore, collection, addDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     /**
-     * CONFIGURACIÓN DE FIREBASE PRECARGADA PARA RANKING GLOBAL
+     * CONFIGURACIÓN DE FIREBASE PARA RANKING GLOBAL EN TIEMPO REAL
      */
     const GITHUB_FIREBASE_CONFIG = {
       apiKey: "AIzaSyAmWyqTTxJIeSRbhgaI5JGsKSLfB8WgrY0",
@@ -773,7 +803,6 @@
       appId: "1:1085083397562:web:18a4c4d44709c819180183"
     };
 
-    // Detecta entorno sandbox si existiese, o utiliza directamente GITHUB_FIREBASE_CONFIG en GitHub Pages
     let activeFirebaseConfig = GITHUB_FIREBASE_CONFIG;
     if (typeof __firebase_config !== "undefined" && __firebase_config) {
       try {
@@ -790,175 +819,186 @@
       1: {
         id: 1,
         short: "Bloque 1",
-        title: "Célula Robotizada Cableada (S7-1200 – ABB)",
-        description: "Manguera W1 de 20 hilos, bornero XB1, tarjeta DSQC1030, relés 1L/2L, FB_Robot_Minimo, señales di/do y código RAPID."
+        title: "Buses de Campo y Redes Industriales",
+        description: "PROFINET IO (roles, GSDML, RT vs IRT, DCP), PROFIBUS DP/PA, EtherCAT, IO-Link (IODD, COM1-COM3), AS-i, DeviceNet (CAN) y CC-Link IE."
       },
       2: {
         id: 2,
         short: "Bloque 2",
-        title: "Célula Robotizada por EtherNet/IP",
-        description: "Escáner LCCF_EnetScanner, adaptador OmniCore (3024-2), Assemblies 100/112, RPI, eco de programa y bytes."
+        title: "Célula Robot ABB — Práctica Cableada",
+        description: "Manguera W1 de 20 hilos, bornero XB1, tarjeta DSQC1030, relés 1L/2L, marca de ciclo MB0, FB_Robot_Minimo, señales di/do y rutinas RAPID."
       },
       3: {
         id: 3,
         short: "Bloque 3",
-        title: "PROFINET IO y Redes Ethernet Industriales",
-        description: "Roles IO-Controller/Device/Supervisor, GSDML, RT vs IRT, topología en anillo MRP, DCP y pasarelas IE/PB Link."
+        title: "Célula Robot ABB — Práctica EtherNet/IP",
+        description: "Escáner LCCF_EnetScanner, adaptador OmniCore E10 (puerto WAN, opción 3024-2), Assemblies 100/112, RPI, eco de programa y mapa de bytes."
       },
       4: {
         id: 4,
         short: "Bloque 4",
-        title: "Buses de Campo (PROFIBUS, DeviceNet, AS-i, EtherCAT, IO-Link)",
-        description: "PROFIBUS DP/PA, acopladores DP/PA, EtherCAT on-the-fly, IO-Link e IODD, AS-i, DeviceNet (CAN) y CC-Link IE."
+        title: "Arquitectura, Esquemas de Bloques y Selección de Equipos",
+        description: "Simbología normalizada (PLC, VF, IOL-M, GW, SW), leyendas de red, pirámide de automatización, VLANs y lectura técnica de datasheets."
       },
       5: {
         id: 5,
         short: "Bloque 5",
-        title: "Diagnóstico, Partes de Avería, Esquemas y Ciberseguridad",
-        description: "Diagramas de bloques (PLC, VF, IOL-M, GW), averías físicas/lógicas, comprobadores, partes de avería e IEC 62443."
+        title: "Diagnóstico de Averías, Mantenimiento, Partes y Ciberseguridad",
+        description: "Averías físicas y lógicas, comprobadores de cable, Wireshark, anillo MRP, estructura de partes de avería, MTTR y norma IEC 62443."
       }
     };
 
     /**
-     * Banco completo y exacto de 127 preguntas (B1: 1–22, B2: 23–56, B3: 57–70, B4: 71–99, B5: 100–127)
+     * Banco completo de 138 preguntas únicas sin repetir distribuidas en los 5 bloques
      */
     const QUESTIONS = [
-      // ===================== BLOQUE 1 (1–22) =====================
-      {b:1, q:"¿Qué componente se necesita en la práctica cableada para conectar las señales del PLC al robot que NO se necesita en la práctica EtherNet/IP?", opts:["Un PC con TIA Portal","La manguera de 20 hilos W1, el bornero XB1 de 32 bornes y la tarjeta DSQC1030","Un switch Ethernet","Un cable de red Ethernet"], ans:1, exp:"En la práctica cableada cada señal discreta requiere un conductor físico mediante la manguera W1, el bornero XB1 y la tarjeta de E/S DSQC1030."},
-      {b:1, q:"En la práctica cableada, el START no hace nada al pulsar Marcha. ¿Qué síntoma indica la guía como causa probable?", opts:["El variador no tiene tensión","El cable Ethernet está desconectado","El archivo GSD está corrupto","La marca de ciclo no está activada en la CPU, el PP no está en Main, o el robot tiene un fallo"], ans:3, exp:"Para que el bloque FB_Robot_Minimo genere los pulsos de arranque y el robot los acepte, debe estar activa la marca de ciclo del PLC y el puntero en Main sin fallos."},
-      {b:1, q:"En la práctica cableada, ¿qué alimentación necesitan los relés de salida de la CPU S7-1200 (bornes 1L, 2L)?", opts:["+24 V DC (por F2, 2A) — es el común de los relés que cierran hacia el robot","230 V AC","0 V (tierra)","No necesitan alimentación separada"], ans:0, exp:"Los bornes 1L y 2L alimentan el común de los contactos de relé de la CPU con +24 V DC protegidos por fusible para enviar los niveles altos al robot."},
-      {b:1, q:"En la práctica cableada, tras una parada de emergencia por seta del FlexPendant, ¿cuál es la secuencia para restablecer el funcionamiento?", opts:["Soltar la seta, pulsar Reset y luego pulsar Marcha","Reiniciar el PLC desde TIA Portal","Apagar y encender el controlador el robot","Desconectar la manguera W1 y volver a conectarla"], ans:0, exp:"Primero debe desenclavarse físicamente la seta de emergencia, luego rearmar el fallo con Reset y finalmente dar orden de Marcha."},
-      {b:1, q:"En la práctica cableada, los motores del robot no se conectan al pulsar Marcha. La guía indica como causa: \"Robot no en Auto, seguridad no OK, o di01 sin invertir\". ¿Cuál es el orden correcto de diagnóstico?", opts:["Cambiar la manguera W1 completa","Cambiar la CPU del robot directamente","Verificar que el robot está en modo Auto (selector), que el vallado está cerrado (SeguridadOK = 1), y que di01_MotoresOff tiene Invert Physical Value = Yes","Reinstalar RobotStudio"], ans:2, exp:"Se sigue un orden lógico de comprobación: selector en modo Auto, circuito de seguridad cerrado e inversión lógica en di01_MotoresOff."},
-      {b:1, q:"En la práctica de la célula robot con E/S cableadas, ¿cuántas señales viajan por la manguera W1 entre el PLC S7-1200 y el robot ABB?", opts:["8 señales en un solo sentido","32 señales: 16 en cada sentido","16 señales: 8 órdenes del PLC + 8 estados del robot","4 bytes en cada sentido"], ans:2, exp:"La interfaz cableada mínima utiliza 8 salidas digitales del PLC hacia el robot y 8 salidas del robot hacia entradas del PLC (16 señales en total)."},
-      {b:1, q:"En la práctica cableada S7-1200 - robot ABB, ¿cuál es el punto susceptible de avería que se debe comprobar primero si ninguna señal del robot llega al PLC?", opts:["La versión de firmware del robot","La dirección IP del PLC","La marca de ciclo del OB1","La alimentación +24 V en el hilo 17 (PWR DO) y el 0 V común en el hilo 18"], ans:3, exp:"Si fallan todas las entradas procedentes del robot a la vez, la causa más directa es la falta de alimentación +24 V / 0 V común de su tarjeta de salidas."},
-      {b:1, q:"En la práctica cableada, ¿cómo se llama el DB de instancia que se crea al arrastrar FB_Robot_Minimo al OB1?", opts:["DB_Comunicaciones","DB_EthernetIP","DB_Profinet","DB_Robot1"], ans:3, exp:"Al instanciar el bloque de función FB_Robot_Minimo en el OB1 de TIA Portal se crea el bloque de datos de instancia DB_Robot1."},
-      {b:1, q:"En la práctica cableada, ¿qué entradas del PLC (I1.x) se conectan a los pulsadores y señales de la célula?", opts:["Q0.0 a Q0.7","No hay pulsadores en la práctica cableada","I1.0 = Marcha, I1.1 = Reset, I1.2 = SeguridadOK, I1.3 = Area1OK, I1.4 = Maquina1OK","I0.0 a I0.7 (las mismas del robot)"], ans:2, exp:"El byte I0 recibe los estados del robot, mientras que las entradas I1.0 a I1.4 recogen los pulsadores de mando y permisos de la célula."},
-      {b:1, q:"En la práctica cableada, la señal llega al PLC pero con valor incorrecto (siempre a 1 cuando debería alternar). La causa probable es:", opts:["El switch no funciona","Fallo lógico: el programa RAPID no cambia la salida, o hay un cortocircuito entre el hilo de señal y +24V en la manguera","Solo puede ser un fallo de software","La dirección IP está mal configurada"], ans:1, exp:"Una señal clavada a 1 continuo se debe a que la salida no conmuta en RAPID o a una derivación física del hilo hacia +24 V."},
-      {b:1, q:"En la práctica cableada, el bloque FB_Robot_Minimo del PLC se puede programar de dos formas. ¿Cuáles son?", opts:["Solo en SCL, no admite LAD","Se programa en RAPID y se carga por red","Solo se importa como librería compilada","Opción A: picar los 10 segmentos en LAD; Opción B: importar el archivo SCL desde fuentes externas"], ans:3, exp:"La guía permite programar manualmente los 10 segmentos en diagrama de contactos (LAD) o importar directamente el código fuente SCL."},
-      {b:1, q:"En la práctica cableada, el robot se para nada más arrancar en automático. La causa es \"di04 sin invertir (Stop activo)\". ¿Qué reparación se debe aplicar?", opts:["Cambiar la CPU del PLC por un modelo con más entradas","Cambiar el cable de la manguera W1","En la configuración de señales del robot (I/O System), poner Invert Physical Value = Yes en di04_HabMov","Desactivar el circuito de seguridad del robot"], ans:2, exp:"Las señales de parada/habilitación trabajan con lógica positiva de seguridad (1 = habilitar), por lo que di04_HabMov requiere inversión física en ABB."},
-      {b:1, q:"En la práctica cableada, ¿a qué System Input del robot se asigna la señal di02_Start?", opts:["Start (con Cycle: Continuous)","Motors Off","Reset Emergency Stop","Motors On"], ans:0, exp:"La entrada digital di02_Start se vincula a la entrada de sistema Start configurada en modo continuo (Cycle: Continuous)."},
-      {b:1, q:"En la práctica cableada, ¿en qué modo debe estar el puntero de programa del robot y en qué procedimiento (PROC) para arrancar correctamente?", opts:["En cualquier modo y procedimiento","En modo paso a paso y en Programa1","En modo cíclico y en ResetSenales","El modo de ejecución debe ser Continuo y el puntero en main (PP a Main)"], ans:3, exp:"Para ejecutar ciclos completos en automático sin detenerse tras cada instrucción, el modo debe ser Continuo y el puntero inicializado en main."},
-      {b:1, q:"En la práctica cableada, ¿cómo funciona el ciclo paso a paso cuando el PLC envía la orden de inicio?", opts:["El robot ejecuta directamente sin coordinación con el PLC","El robot funciona solo con el FlexPendant","El PLC envía todo el programa por red al robot","El PLC activa Marcha, el robot enciende motores, va a HOME, pide programa, el PLC le da área preparada, el robot entra, trabaja, sale, señala trabajo terminado, espera MáquinaOK y vuelve a HOME"], ans:3, exp:"La secuencia ejecuta un protocolo de sincronización (handshaking) mediante señales de permiso y confirmación para evitar colisiones en la célula."},
-      {b:1, q:"En la práctica cableada, ¿cuántos hilos tiene la manguera W1 y de qué tipo es?", opts:["4 pares trenzados Cat 5e","20 hilos, manguera numerada apantallada 21G0,75","2 hilos + pantalla, cable PROFIBUS violeta","8 hilos, cable plano sin apantallar"], ans:1, exp:"Se emplea una manguera apantallada multipolar de sección 0,75 mm² con 20 conductores numerados más tierra (21G0,75)."},
-      {b:1, q:"En la práctica cableada, ¿qué System Output del robot corresponde a la señal do03_Fallo?", opts:["Cycle On","Execution Error","Auto On","Motors On State"], ans:1, exp:"La salida de sistema Execution Error se activa cuando ocurre un fallo de ejecución en RAPID y se mapea a do03_Fallo."},
-      {b:1, q:"En la práctica cableada, tras reparar un hilo cortado en la manguera W1, ¿cuáles son las 4 comprobaciones post-reparación de la lista de la guía?", opts:["Cambiar todos los conectores por precaución","Continuidad de los 18 hilos con polímetro, puentes en XB1 correctos, no hay corto entre +24V y 0V, comprobar señales una a una forzándolas","Solo probar en automático y verificar que funciona","Compilar software, descargar programa, configurar IP, hacer backup"], ans:1, exp:"Antes de poner en marcha se verifica continuidad punto a punto, puentes de alimentación en XB1, ausencia de cortocircuitos y prueba individual de E/S."},
-      {b:1, q:"En la práctica cableada, la señal llega a otra di/do del robot en vez de a la esperada. ¿Qué indica este síntoma?", opts:["La CPU del PLC tiene un fallo de hardware","El bornero XB1 está defectuoso","El programa RAPID está corrupto","Se ha cableado por el número serigrafiado de la DSQC1030 (que es número de E/S) en vez de seguir la tabla de hilos 4.2 (que es por pin)"], ans:3, exp:"En la tarjeta DSQC1030 el número de borne físico no coincide correlativamente con el índice lógico de entrada/salida, debiendo seguirse la tabla de pines."},
-      {b:1, q:"¿Qué lenguaje de programación utiliza el robot ABB para el programa de la célula?", opts:["RAPID","SCL (Structured Control Language)","LAD (Ladder Diagram)","Python"], ans:0, exp:"RAPID es el lenguaje nativo de programación de alto nivel de los controladores de robots industriales ABB."},
-      {b:1, q:"En la práctica cableada, las órdenes del PLC no llegan al robot. La causa probable es:", opts:["La marca de ciclo no está activada","El robot está en modo T1","Fallo en el programa RAPID","Falta 0 V en GND DI (X2.9/X2.18) o +24 V en 1L/2L de la CPU"], ans:3, exp:"Para cerrar el circuito eléctrico entre los relés del S7-1200 y las entradas de la DSQC1030 hacen falta +24 V en 1L/2L y 0 V en GND DI."},
-      {b:1, q:"En la práctica cableada, se detecta un error \"señal no existe\" en RAPID al cargar Celula.mod. ¿Cuál es la causa y la reparación?", opts:["El programa RAPID tiene un virus","El cable Ethernet está desconectado","La CPU del PLC no es compatible","Los nombres de señales en el programa no coinciden con los creados en la configuración de I/O System del robot (apartado 5.1 de la guía); hay que verificar que coinciden exactamente"], ans:3, exp:"RAPID referencia las señales por su identificador simbólico exacto definido en la configuración EIO / I/O System del controlador."},
+      // ===================== BLOQUE 1: BUSES DE CAMPO Y REDES INDUSTRIALES (1–36) =====================
+      {b:1, q:"En PROFINET, ¿cuáles son los tres roles funcionales de los dispositivos?", opts:["Cliente, servidor y broker","Maestro, esclavo y repetidor","IO-Controller, IO-Device e IO-Supervisor","Scanner, Adapter y Monitor"], ans:2, exp:"PROFINET define IO-Controller (PLC maestro), IO-Device (periferia/esclavo de campo) e IO-Supervisor (herramienta de ingeniería/diagnóstico)."},
+      {b:1, q:"¿Qué información contiene un archivo GSDML de un dispositivo PROFINET?", opts:["Solo la dirección MAC del dispositivo","Solo el precio del dispositivo","El programa PLC que hay que cargar","La descripción del dispositivo: módulos, subslots, datos de proceso, parámetros, diagnóstico y datos de identificación, en formato XML"], ans:3, exp:"El GSDML (General Station Description Markup Language) es un fichero XML que describe toda la estructura modular y parámetros del IO-Device."},
+      {b:1, q:"¿Qué topología de redundancia es propia de EtherNet/IP para redes en anillo?", opts:["RSTP (Rapid Spanning Tree)","MRP (Media Redundancy Protocol)","DLR (Device Level Ring)","HSR (High-availability Seamless Redundancy)"], ans:2, exp:"DLR (Device Level Ring) es el protocolo de anillo redundante a nivel de dispositivo definido por ODVA para redes EtherNet/IP."},
+      {b:1, q:"¿Cuál de los siguientes protocolos pertenece a la familia CIP (Common Industrial Protocol)?", opts:["PROFINET IO","EtherNet/IP","PROFIBUS DP","Modbus RTU"], ans:1, exp:"EtherNet/IP, DeviceNet y ControlNet comparten la capa de aplicación CIP gestionada por ODVA."},
+      {b:1, q:"¿Cuál de los siguientes buses fue desarrollado por Beckhoff y es ampliamente usado con controladores Omron?", opts:["EtherCAT","DeviceNet","PROFIBUS DP","CC-Link IE"], ans:0, exp:"EtherCAT (Ethernet for Control Automation Technology) fue creado por Beckhoff y adoptado por Omron como bus principal de automatización."},
+      {b:1, q:"¿Cuántos esclavos máximos admite una red AS-i?", opts:["32","126","62","254"], ans:2, exp:"Con direccionamiento extendido A/B (versión 2.1/3.0), el bus AS-Interface soporta hasta 62 esclavos por maestro."},
+      {b:1, q:"En PROFINET, ¿qué diferencia hay entre comunicación RT (Real Time) e IRT (Isochronous Real Time)?", opts:["No hay diferencia, son el mismo modo con distinto nombre","RT consigue tiempos de 1-10 ms sobre Ethernet estándar; IRT consigue tiempos inferiores a 1 ms reservando ranuras temporales en el switch","RT funciona a 1 Gbit/s e IRT a 100 Mbit/s","RT es para PROFIBUS e IRT para PROFINET"], ans:1, exp:"RT omite TCP/IP para lograr tiempos de ciclo de 1–10 ms en switches estándar, mientras IRT usa sincronización por hardware (< 1 ms) para control de ejes."},
+      {b:1, q:"¿Qué distancia máxima permite DeviceNet a su velocidad más baja (125 kbit/s)?", opts:["20 metros","500 metros","1200 metros","100 metros"], ans:1, exp:"En DeviceNet existe una relación inversa entre velocidad y longitud de troncal: 100 m a 500 kbit/s, 250 m a 250 kbit/s y hasta 500 m a 125 kbit/s."},
+      {b:1, q:"¿Qué tipo de archivo de descripción utiliza IO-Link para definir las características de un sensor o actuador?", opts:["EDS","GSD","IODD (IO Device Description)","GSDML"], ans:2, exp:"Cada dispositivo IO-Link dispone de su fichero XML IODD con sus parámetros, eventos y estructura de datos de proceso."},
+      {b:1, q:"¿Qué tipo de cable utiliza PROFIBUS DP como medio físico estándar?", opts:["Par trenzado apantallado de color violeta (RS-485)","Fibra óptica monomodo","Cable coaxial RG-58","Cable plano amarillo de dos hilos"], ans:0, exp:"El estándar PROFIBUS DP sobre RS-485 emplea cable de par trenzado apantallado de impedancia característica 150 Ω con cubierta violeta."},
+      {b:1, q:"¿Qué ventaja principal ofrece IO-Link frente a una conexión analógica 4-20 mA tradicional?", opts:["IO-Link funciona a mayor distancia que 4-20 mA","La señal 4-20 mA es más precisa que IO-Link","IO-Link transmite datos de proceso, diagnóstico y parámetros por el mismo cable de 3 hilos, además de permitir backup automático de configuración","IO-Link es más barato en todos los casos"], ans:2, exp:"IO-Link es comunicación digital punto a punto bidireccional sobre cable estándar sin apantallar de 3 hilos, aportando diagnóstico y parametrización remota."},
+      {b:1, q:"¿Cuál es la principal diferencia entre PROFINET RT e IRT en cuanto a hardware necesario?", opts:["RT funciona con switches Ethernet estándar; IRT requiere switches especiales con soporte de ranuras temporales sincronizadas","RT necesita switches más caros que IRT","No hay diferencia de hardware","IRT funciona sin switches"], ans:0, exp:"PROFINET IRT exige controladores ASIC y switches gestionados compatibles con planificación isócrona (cut-through y reserva de ancho de banda)."},
+      {b:1, q:"PROFIBUS PA se diferencia de PROFIBUS DP principalmente en que:", opts:["Usa Ethernet en lugar de RS-485","No necesita archivo GSD","Utiliza tecnología MBP a 31,25 kbit/s y permite su uso en zonas con riesgo de explosión (Ex)","Funciona a 12 Mbit/s como PROFIBUS DP"], ans:2, exp:"PROFIBUS PA emplea capa física MBP (Manchester Bus Powered) a 31,25 kbit/s con seguridad intrínseca y alimentación por el propio par de datos."},
+      {b:1, q:"¿Cuál de los siguientes buses opera en el nivel sensor/actuador de la pirámide de comunicaciones industriales?", opts:["CC-Link IE","EtherNet/IP","AS-i","PROFINET IO"], ans:2, exp:"AS-Interface (AS-i) está diseñado específicamente para el nivel inferior de sensores y actuadores binarios simples."},
+      {b:1, q:"En PROFINET, ¿qué protocolo se utiliza para asignar nombres de estación a los dispositivos IO?", opts:["ARP","DCP (Discovery and Configuration Protocol)","LLDP","DHCP"], ans:1, exp:"El protocolo DCP de capa 2 permite descubrir dispositivos en la red por su MAC y asignarles su Name of Station e IP."},
+      {b:1, q:"¿Cuál es la distancia máxima de un enlace IO-Link punto a punto con cable estándar de 3 hilos sin apantallar?", opts:["100 metros","1200 metros","500 metros","20 metros"], ans:3, exp:"La especificación física de IO-Link limita la longitud máxima del cable entre maestro y dispositivo a 20 metros."},
+      {b:1, q:"¿Qué función realiza un acoplador DP/PA en una instalación PROFIBUS?", opts:["Convierte de Ethernet a RS-485","Interconecta un segmento PROFIBUS DP (RS-485) con un segmento PROFIBUS PA (MBP), cambiando de medio físico y velocidad","Amplifica la señal RS-485 sin cambiar de protocolo","Convierte señales analógicas 4-20 mA a digitales"], ans:1, exp:"El acoplador adapta eléctricamente el bus RS-485 de PROFIBUS DP al bus MBP intrínsecamente seguro de PROFIBUS PA (31,25 kbit/s)."},
+      {b:1, q:"En PROFIBUS DP, ¿qué método de acceso al medio se utiliza?", opts:["Acceso aleatorio sin control","TDMA con ranuras temporales fijas","Token passing entre maestros y polling maestro-esclavo","CSMA/CD como en Ethernet clásico"], ans:2, exp:"PROFIBUS utiliza un esquema híbrido determinista: paso de testigo (Token Passing) entre maestros y sondeo cíclico (Polling) de cada maestro a sus esclavos."},
+      {b:1, q:"¿Qué protocolo permite a un técnico de mantenimiento supervisar remotamente el estado de un PLC PROFINET desde la oficina, dentro de la misma planta?", opts:["Solo se puede hacer estando físicamente junto al PLC","Únicamente con un cable serie RS-232","Mediante la función IO-Supervisor desde un PC conectado a la misma red PROFINET","Solo mediante una llamada telefónica al operario"], ans:2, exp:"El rol IO-Supervisor permite a una estación de ingeniería o diagnóstico acceder acíclicamente a los dispositivos de la red PROFINET."},
+      {b:1, q:"¿Cuál de los siguientes buses utiliza el principio de procesamiento \"al vuelo\" (on-the-fly) donde cada esclavo lee y escribe su porción de trama mientras esta circula?", opts:["Modbus TCP","PROFIBUS DP","DeviceNet","EtherCAT"], ans:3, exp:"EtherCAT procesa los telegramas al vuelo mediante hardware dedicado en cada esclavo, logrando tiempos de ciclo de microsegundos."},
+      {b:1, q:"¿Qué protocolo EtherNet/IP utiliza para las comunicaciones implícitas (cíclicas, en tiempo real)?", opts:["HTTP en el puerto 80","TCP en el puerto 44818","MQTT en el puerto 1883","UDP en el puerto 2222"], ans:3, exp:"EtherNet/IP emplea TCP puerto 44818 para mensajes explícitos/registro de sesión y UDP puerto 2222 para el intercambio cíclico implícito."},
+      {b:1, q:"Un enlace IE/PB Link en una instalación PROFINET-PROFIBUS actúa como:", opts:["Proxy que traduce entre protocolo PROFINET y PROFIBUS DP","Repetidor que amplifica la señal RS-485","Servidor OPC UA para acceso remoto","Switch gestionado con funciones de VLAN"], ans:0, exp:"El IE/PB Link integra segmentos PROFIBUS DP existentes dentro de un controlador PROFINET IO actuando como pasarela/proxy."},
+      {b:1, q:"¿Cuántos nodos máximos admite una red DeviceNet?", opts:["64","32","254","126"], ans:0, exp:"DeviceNet utiliza un identificador MAC ID de 6 bits (direcciones 0 a 63), lo que permite un máximo de 64 nodos por red."},
+      {b:1, q:"¿Qué velocidad máxima alcanza CC-Link IE?", opts:["10 Mbit/s","12 Mbit/s","100 Mbit/s","1 Gbit/s"], ans:3, exp:"CC-Link IE (Industrial Ethernet) opera nativamente a 1 Gbit/s sobre par trenzado o fibra óptica."},
+      {b:1, q:"¿Cuál es la velocidad máxima de PROFIBUS DP?", opts:["1 Gbit/s","12 Mbit/s","500 kbit/s","100 Mbit/s"], ans:1, exp:"PROFIBUS DP admite velocidades escalonadas desde 9,6 kbit/s hasta un máximo de 12 Mbit/s."},
+      {b:1, q:"DeviceNet se basa en la tecnología de bus:", opts:["Ethernet IEEE 802.3","RS-485","CAN (Controller Area Network)","RS-232"], ans:2, exp:"DeviceNet implementa el protocolo CIP sobre la capa física y de enlace CAN (Controller Area Network)."},
+      {b:1, q:"¿Cuántos hilos utiliza un cable DeviceNet estándar?", opts:["1 cable coaxial","8 hilos (4 pares como Ethernet)","2 hilos (como RS-485)","5 hilos (2 de datos CAN + 2 de alimentación + pantalla)"], ans:3, exp:"El cable troncal/drop de DeviceNet integra 5 conductores: par de datos (CAN_H, CAN_L), par de alimentación (24 V, 0 V) y malla de apantallamiento."},
+      {b:1, q:"¿En qué nivel de la pirámide de comunicaciones se sitúa típicamente EtherCAT?", opts:["Nivel de gestión empresarial (ERP)","Nivel de célula/planta","Nivel sensor/actuador exclusivamente","Nivel de campo (fieldbus)"], ans:3, exp:"EtherCAT es un bus de campo (fieldbus) de altas prestaciones que conecta el controlador con periferia distribuida, servoaccionamientos y maestros IO-Link."},
+      {b:1, q:"¿Cuál es el tiempo de ciclo máximo de AS-i para un bus completo con 62 esclavos?", opts:["1 segundo","100 ms","10 ms","1 ms"], ans:2, exp:"Un maestro AS-i sondea hasta 31 esclavos estándar en 5 ms y una red completa de 62 esclavos A/B en un máximo de 10 ms."},
+      {b:1, q:"¿Qué función realiza un maestro IO-Link como el NX-ILM400 de Omron en una arquitectura de comunicaciones?", opts:["Solo alimenta los sensores","Convierte señales de RS-485 a Ethernet","Sustituye al PLC en el control del proceso","Interconecta sensores y actuadores IO-Link punto a punto con la red de nivel superior (EtherCAT, PROFINET, etc.), actuando como pasarela entre niveles"], ans:3, exp:"El maestro IO-Link actúa como enlace entre el nivel de sensor/actuador inteligente y el bus de campo principal (como EtherCAT en Omron)."},
+      {b:1, q:"En una red PROFIBUS DP, ¿cuántas direcciones de estación son posibles en total con repetidores?", opts:["64","32","126","255"], ans:2, exp:"PROFIBUS DP admite direcciones de estación de 0 a 125 (126 nodos en total) segmentadas mediante repetidores RS-485 cada 32 dispositivos."},
+      {b:1, q:"¿Cuál es el conector estándar de PROFIBUS DP y qué pines llevan las señales de datos?", opts:["DB-9 con pin 3 (B, rojo) y pin 8 (A, verde)","RJ-45 con pines 1-2 y 3-6","USB tipo B","M12 con 4 pines codificación D"], ans:0, exp:"El conector Sub-D de 9 pines de PROFIBUS DP emplea el pin 3 para la línea RxD/TxD-P (rojo, B) y el pin 8 para RxD/TxD-N (verde, A)."},
+      {b:1, q:"¿Cuál es la distancia máxima de un segmento PROFIBUS DP a 12 Mbit/s?", opts:["100 metros","500 metros","1200 metros","20 metros"], ans:0, exp:"A la máxima velocidad de 12 Mbit/s, la longitud máxima de un segmento de cobre PROFIBUS DP sin repetidores es de 100 metros."},
+      {b:1, q:"En IO-Link, ¿cuáles son los modos de comunicación y a qué velocidad opera COM3?", opts:["Solo un modo a 9600 baud","Half-duplex a 115200 baud","SIO (modo estándar sin IO-Link), COM1 (4,8 kbit/s), COM2 (38,4 kbit/s) y COM3 (230,4 kbit/s)","Modo A (1 Mbit/s) y Modo B (10 Mbit/s)"], ans:2, exp:"IO-Link soporta conmutación binaria estándar (SIO) y tres velocidades serie punto a punto: COM1 (4,8 kbit/s), COM2 (38,4 kbit/s) y COM3 (230,4 kbit/s)."},
+      {b:1, q:"¿Cuál es el medio físico característico de AS-i?", opts:["Par trenzado apantallado violeta","Fibra óptica plástica","Cable plano amarillo de dos hilos (datos + alimentación)","Cable Ethernet Cat 5e"], ans:2, exp:"AS-i emplea un cable perfilado plano de color amarillo sin apantallar de dos hilos que transporta simultáneamente datos y alimentación de 24–30 V DC."},
+      {b:1, q:"Para integrar un dispositivo PROFIBUS DP en TIA Portal se necesita un archivo de descripción. ¿De qué tipo?", opts:["EDS (Electronic Data Sheet)","GSD (Generic Station Description)","IODD (IO Device Description)","GSDML (formato XML para PROFINET)"], ans:1, exp:"Los esclavos PROFIBUS DP se integran en el configurador hardware mediante archivos GSD (Generic Station Description) proporcionados por el fabricante."},
 
-      // ===================== BLOQUE 2 (23–56) =====================
-      {b:2, q:"En la práctica EtherNet/IP, el robot se mueve en manual pero no se puede controlar desde el PLC. La causa probable es:", opts:["El programa RAPID tiene un bucle infinito","Sin comunicación activa, el robot ve MOTORES OFF = 0 y HABILITAR MOVIMIENTOS = 0, lo que permite el manual pero bloquea el automático desde PLC; hay que conectar el PLC o simular di_MotoresOff = 0 y di_HabMov = 0","El cable Ethernet está desconectado (sería isActive = 0)","El switch no tiene alimentación PoE"], ans:1, exp:"Sin enlace cíclico activo, las entradas mapeadas del robot permanecen a 0, inhibiendo el automático desde PLC pero permitiendo el movimiento manual."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué indica el byte 2 del sentido PLC→Robot?", opts:["ÁREA PREPARADA 1 a 8 (un bit por área)","La velocidad del robot","NÚMERO DE PROGRAMA","MOTORES OFF y START EXTERNO"], ans:0, exp:"El byte 2 del ensamblado de salida del PLC codifica bit a bit la autorización de acceso para las áreas 1 a 8."},
-      {b:2, q:"¿Qué topología de redundancia es propia de EtherNet/IP para redes en anillo?", opts:["RSTP (Rapid Spanning Tree)","MRP (Media Redundancy Protocol)","DLR (Device Level Ring)","HSR (High-availability Seamless Redundancy)"], ans:2, exp:"DLR (Device Level Ring) es el protocolo de anillo redundante a nivel de dispositivo definido por ODVA para redes EtherNet/IP."},
-      {b:2, q:"En la práctica EtherNet/IP, cuando el robot pide un número de programa al PLC, ¿cómo confirma el PLC que lo ha recibido correctamente?", opts:["Se usa un handshake de 3 vías como en TCP/IP","El PLC escribe el número de programa y el robot devuelve un eco; el PLC comprueba que el eco coincide y pone el número a 0","El PLC no confirma; el robot ejecuta directamente","El PLC envía un ACK por TCP en el puerto 44818"], ans:1, exp:"Se implementa un protocolo de confirmación por eco: el PLC envía el código de programa, verifica el eco devuelto por el robot y lo pone a 0."},
-      {b:2, q:"En la práctica EtherNet/IP, el robot pide programa y el PLC no lo envía. Es una avería de tipo:", opts:["Lógica (falta la señal Marcha, o NumProgramaSel está a 0 en el programa del PLC)","Física (cable cortado)","Electromagnética","De firmware incompatible"], ans:0, exp:"Si la red comunica correctamente pero no se envía el número de programa, el origen está en las condiciones lógicas del programa del PLC."},
-      {b:2, q:"En la práctica EtherNet/IP, el robot da el error \"No contact with device\" (isActive = 0). Se ha comprobado que el ping funciona entre los tres equipos. ¿Cuál es la siguiente acción de reparación?", opts:["Cambiar el cable Ethernet por uno de categoría 6A","Reformatear el disco duro del PC","Cambiar el switch por uno industrial gestionado","Verificar que los tamaños de ensamblado (100 y 112) coinciden en PLC y robot, y que la librería LCCF_EnetScanner está en RUN (enable)"], ans:3, exp:"Si hay conectividad IP (ping OK) pero no sesión CIP, debe revisarse la coincidencia de instancias de Assembly (100/112) y la habilitación del bloque escáner."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué ocurre con el robot si se desenchufa el cable de red estando en automático?", opts:["El PLC conmuta automáticamente a la interfaz cableada","El robot pone sus entradas a 0, pierde motores (isActive = 0); al reconectar se debe hacer Reset y Marcha","El robot guarda su posición y espera 30 segundos antes de parar","El robot continúa trabajando normalmente"], ans:1, exp:"Al perderse la comunicación cíclica, las entradas virtuales caen a 0 por seguridad (desconexión de motores) y requieren Reset y Marcha al reconectar."},
-      {b:2, q:"¿Cuál de los siguientes protocolos pertenece a la familia CIP (Common Industrial Protocol)?", opts:["PROFINET IO","EtherNet/IP","PROFIBUS DP","Modbus RTU"], ans:1, exp:"EtherNet/IP, DeviceNet y ControlNet comparten la capa de aplicación CIP gestionada por ODVA."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué señales nuevas aparecen respecto a la práctica cableada en el byte 0 Robot→PLC?", opts:["TEMPERATURA y PRESIÓN","VELOCIDAD DEL ROBOT y PAR DEL MOTOR","MODO T1 (bit 6) y POSICIÓN DE MANTENIMIENTO (bit 7)","No hay señales nuevas"], ans:2, exp:"Al disponer de bytes completos en EtherNet/IP se añaden los bits 6 (Modo manual T1) y 7 (Robot en posición de mantenimiento) en el byte 0."},
-      {b:2, q:"En la práctica EtherNet/IP, tras reconectar un cable de red desconectado, ¿qué secuencia restaura la operación del robot?", opts:["Esperar a que isActive vuelva a 1, luego pulsar Reset y después Marcha","Recargar el programa RAPID","Reiniciar el switch, el PLC y el robot en ese orden","Solo esperar, se recupera solo"], ans:0, exp:"Debe confirmarse el restablecimiento de la sesión CIP (isActive = 1) antes de pulsar Reset para borrar el fallo y Marcha para reanudar."},
-      {b:2, q:"Al comparar la práctica cableada con la práctica EtherNet/IP para seleccionar la tecnología de integración PLC-robot en un proyecto nuevo, ¿qué criterio técnico favorece la elección de EtherNet/IP?", opts:["EtherNet/IP no necesita programación","La práctica cableada nunca funciona correctamente","EtherNet/IP escala mejor: más señales sin recablear, múltiples programas/áreas/máquinas, eco de confirmación, y la misma infraestructura Ethernet sirve para diagnóstico y programación remota","EtherNet/IP es siempre más barato"], ans:2, exp:"El bus de campo elimina el cableado punto a punto, permite ampliar bytes de E/S por software y aprovecha la red Ethernet para ingeniería y diagnóstico."},
-      {b:2, q:"En la práctica EtherNet/IP, Marcha no hace nada. ¿Cuáles son las causas probables según la guía?", opts:["El cable Ethernet está cortado","El archivo GSDML es incorrecto","El variador no tiene par suficiente","SeguridadOK, ComOK o Estado.Automatico están a 0"], ans:3, exp:"El bloque de control en el PLC exige como condiciones previas que la seguridad esté OK, la comunicación activa y el robot en modo Automático."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿cuántos programas diferentes puede seleccionar el PLC para que ejecute el robot?", opts:["Solo 1 programa (como en la práctica cableada)","Ilimitados, mediante un String de texto","Hasta 8 programas, uno por área","Hasta 254 programas regulares más el 255 para mantenimiento"], ans:3, exp:"Un byte entero (0–255) permite codificar hasta 254 programas de trabajo reservando el valor 255 para posición de mantenimiento."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿cada cuánto tiempo se intercambian datos entre el PLC (escáner) y el robot (adaptador)?", opts:["Solo cuando se pulsa Marcha","Solo bajo demanda del operador","Cada 50 ms de forma cíclica","Una vez por segundo"], ans:2, exp:"El intervalo RPI (Requested Packet Interval) configurado en la práctica establece un refresco cíclico determinista cada 50 ms."},
-      {b:2, q:"Tras restablecer la comunicación en una red EtherNet/IP, ¿qué 4 pasos de comprobación se deben seguir?", opts:["Verificar isActive = 1 en el DB, comprobar que las señales de estado del robot llegan correctamente, probar el ciclo en manual (T1) y finalmente probar en automático a velocidad reducida","Reformatear el PLC y recargar todo","Solo verificar que el LED verde está encendido","Cambiar todos los cables por precaución"], ans:0, exp:"La puesta en marcha segura valida primero la comunicación en el DB, luego el mapeo de señales y finalmente la prueba en T1 antes de Auto reducido."},
-      {b:2, q:"¿Por qué en la práctica EtherNet/IP la seguridad (setas, puertas, vallado) sigue cableada aparte y no viaja por la red?", opts:["Porque el cable Ethernet no soporta 24V","Porque EtherNet/IP no es un bus de seguridad; las señales de seguridad deben ir por un circuito dedicado independiente de la comunicación de datos","Porque EtherNet/IP no puede transmitir señales digitales","Porque la guía está equivocada y sí se puede hacer por red"], ans:1, exp:"El EtherNet/IP estándar no está certificado como bus funcional seguro (CIP Safety); las paradas de emergencia deben ir por circuitos cableados dedicados."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿cuál es la IP del robot ABB (adaptador) y cuál la del PLC S7-1200 (escáner)?", opts:["PLC: 192.168.0.10, Robot: 192.168.0.1","Ambos tienen la misma IP con puertos diferentes","PLC: 10.0.0.1, Robot: 10.0.0.10","PLC: 192.168.0.1, Robot: 192.168.0.10"], ans:3, exp:"Dentro de la subred 192.168.0.0/24 de la célula, el PLC escáner tiene la dirección .1 y el robot adaptador la .10."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué librería de Siemens se instala en TIA Portal para que el S7-1200 actúe como escáner EtherNet/IP?", opts:["PROFINET_Library","Modbus_TCP_Client","OPC_UA_Server","LCCF_EnetScanner"], ans:3, exp:"Siemens proporciona la librería gratuita LCCF_EnetScanner para implementar la funcionalidad de escáner EtherNet/IP en controladores S7-1200/1500."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué tamaños de ensamblado (assembly) se configuran en el S7-1200 para comunicar con el robot ABB?", opts:["Input assembly 100, Output assembly 112","Input assembly 1, Output assembly 1","Input 4 bytes, Output 4 bytes (sin assembly)","Input 50 bytes, Output 50 bytes"], ans:0, exp:"El dispositivo interno EtherNet/IP de ABB OmniCore utiliza por defecto las instancias de ensamblado 100 (entradas hacia PLC) y 112 (salidas desde PLC)."},
-      {b:2, q:"¿Qué significa que la comunicación EtherNet/IP entre PLC y robot sea \"implícita\"?", opts:["Que los datos se intercambian cíclicamente de forma automática a un intervalo fijo (RPI), sin necesidad de que el programa PLC envíe comandos de lectura/escritura explícitos","Que la comunicación está oculta y no se puede diagnosticar","Que usa protocolo TCP garantizado","Que solo se comunican cuando el operador lo pide"], ans:0, exp:"Los mensajes implícitos (Clase 1) transportan datos de E/S en tiempo real de manera cíclica y automática según el periodo RPI."},
-      {b:2, q:"¿Cuál es el medio físico utilizado en la práctica EtherNet/IP entre el S7-1200 y el robot ABB?", opts:["Manguera de 20 hilos con bornero XB1","Cable Ethernet estándar (un solo cable de red por equipo, a través de un switch)","Cable PROFIBUS violeta RS-485","Fibra óptica multimodo"], ans:1, exp:"La interconexión se realiza en topología estrella mediante latiguillos Ethernet estándar RJ-45 conectados a un switch."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿se puede ampliar el número de señales sin añadir cables físicos?", opts:["Solo si se duplica el switch","Sí, basta con aumentar el tamaño de los assembly (más bytes) en la configuración del PLC y del robot, sin tocar el cableado Ethernet","No, siempre hay que añadir cables","Solo si se cambia a fibra óptica"], ans:1, exp:"La ampliación es puramente lógica: basta redimensionar los bytes de entrada/salida de los ensamblados y mapear las nuevas señales."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué valor debe enviar el PLC en el byte 1 (NÚMERO DE PROGRAMA) para que el robot vaya a la posición de mantenimiento?", opts:["0","254","255","1"], ans:2, exp:"El código decimal 255 está reservado en el protocolo de la célula para ordenar al robot desplazarse a la posición segura de mantenimiento."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿cuál de los siguientes es un punto susceptible de avería que NO existía en la práctica cableada?", opts:["Los pulsadores de Marcha y Reset","La alimentación de 24V de la CPU","La manguera W1 y el bornero XB1","La configuración de IPs, cortafuegos del robot y tamaños de assembly"], ans:3, exp:"Al sustituir hilos por comunicación de red aparecen parámetros lógicos críticos como direccionamiento IP, firewall del controlador y tamaño de ensamblados."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué opción de cortafuegos del robot ABB (OmniCore) debe estar habilitada para permitir la comunicación?", opts:["Puerto UDP 34964 (PROFINET)","No hay cortafuegos en el OmniCore","Opción 3024-2 (EtherNet/IP)","Puerto TCP 502 (Modbus)"], ans:2, exp:"En los controladores ABB OmniCore es necesario habilitar en el firewall la opción de software 3024-2 correspondiente a EtherNet/IP."},
-      {b:2, q:"En la práctica EtherNet/IP, el campo isActive del DB_Robot1 vale 0 y el robot muestra \"No contact with device\". ¿Qué indica este síntoma?", opts:["El robot está en modo manual T1","El variador no responde al telegrama","El programa RAPID tiene un error de sintaxis","No hay comunicación de red entre PLC y robot: comprobar ping, IPs, tamaños de ensamblado y cortafuegos"], ans:3, exp:"Tanto isActive = 0 en el PLC como 'No contact with device' en el FlexPendant indican que no se ha establecido la conexión cíclica CIP."},
-      {b:2, q:"¿Qué protocolo EtherNet/IP utiliza para las comunicaciones implícitas (cíclicas, en tiempo real)?", opts:["HTTP en el puerto 80","TCP en el puerto 44818","MQTT en el puerto 1883","UDP en el puerto 2222"], ans:3, exp:"EtherNet/IP emplea TCP puerto 44818 para mensajes explícitos/registro de sesión y UDP puerto 2222 para el intercambio cíclico implícito."},
-      {b:2, q:"En la práctica EtherNet/IP, hay comunicación (isActive = 1) pero las señales del robot salen cambiadas (una señal aparece en otra posición). ¿Cuál es la reparación?", opts:["Revisar el Device Mapping de las señales del robot y el orden de bytes en los bloques de mapeo del PLC","Cambiar la IP del PLC","Cambiar el cable Ethernet por uno apantallado","Reinstalar el firmware del robot"], ans:0, exp:"Cuando hay enlace activo pero las señales están desplazadas, existe un desajuste en el mapeo de bits/bytes entre el UDT del PLC y el I/O System del robot."},
-      {b:2, q:"En la tabla comparativa de la guía EtherNet/IP, ¿qué cambia en el programa del PLC respecto a la práctica cableada?", opts:["Solo cambia el nombre de las variables","No cambia nada, es el mismo programa","En la cableada se usan variables directas %I/%Q; en EtherNet/IP se usa un DB del robot (UDT) + bloques de mapeo y librería LCCF_EnetScanner","En EtherNet/IP no hace falta programa de PLC"], ans:2, exp:"En EtherNet/IP las señales no van a bornes físicos %I/%Q, sino que se empaquetan en un UDT dentro de un DB gestionado por LCCF_EnetScanner."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué ocurre cuando el robot está en posición de mantenimiento y el PLC le envía el programa 1 o 2?", opts:["El robot ignora el comando","El PLC da un error de comunicación","El robot se apaga","El robot vuelve a HOME y sigue con el programa indicado"], ans:3, exp:"Al recibir un número de programa de trabajo válido (1 o 2), el robot abandona la posición de mantenimiento, retorna a HOME y ejecuta la rutina."},
-      {b:2, q:"¿Qué diferencia hay entre la configuración de señales del robot en la práctica cableada y en la práctica EtherNet/IP?", opts:["En la cableada las señales se asignan al conector X5 (DSQC1030); en EtherNet/IP se asignan a EN_Internal_Device (opción 3024-2)","No hay ninguna diferencia","En la cableada se usan 32 señales y en EtherNet/IP solo 8","En EtherNet/IP no hay señales, solo se usa OPC UA"], ans:0, exp:"El mapeo de señales en ABB cambia el dispositivo destino: de la tarjeta física DSQC1030 (conector X5) al dispositivo virtual EN_Internal_Device."},
-      {b:2, q:"En la práctica EtherNet/IP, no se puede mover el robot en manual aunque el controlador está encendido. La guía indica que sin comunicación activa el robot ve MOTORES OFF y STOP. ¿Qué reparación temporal permite mover en manual?", opts:["Reiniciar el router de la oficina","Conectar el PLC y establecer comunicación, o simular di_MotoresOff = 0 y di_HabMov = 0 desde el FlexPendant (y quitar la simulación después)","Cambiar el robot por otro modelo","Desconectar permanentemente la tarjeta DSQC1030"], ans:1, exp:"Forzar temporalmente la simulación de ambas señales en el FlexPendant libera el bloqueo mientras se trabaja sin PLC, debiendo retirarse al finalizar."},
-      {b:2, q:"En la práctica EtherNet/IP, ¿qué ventaja ofrece el mecanismo de múltiples programas (1-254) + mantenimiento (255) frente a la práctica cableada?", opts:["Permite seleccionar remotamente qué trabajo ejecuta el robot y enviarlo a posición de mantenimiento sin recablear ni cambiar programa, escalando a 8 áreas y 8 máquinas","El robot es más rápido por EtherNet/IP","No hay ninguna ventaja, es más complicado","Solo sirve para ahorrar cable"], ans:0, exp:"La codificación por bytes permite gestionar recetas múltiples, zonas y rutinas de mantenimiento de forma escalable sin modificar el hardware."},
-      {b:2, q:"¿Qué significa el término RPI (Requested Packet Interval) en EtherNet/IP?", opts:["El intervalo de tiempo configurado entre envíos de datos cíclicos del escáner al adaptador","La dirección IP del router","El tamaño máximo del paquete en bytes","El número de reintentos antes de dar error"], ans:0, exp:"El RPI define la cadencia temporal (en milisegundos) con la que se producen y consumen los paquetes de datos cíclicos implícitos."},
+      // ===================== BLOQUE 2: CÉLULA ROBOT ABB — PRÁCTICA CABLEADA (37–62) =====================
+      {b:2, q:"¿Qué componente se necesita en la práctica cableada para conectar las señales del PLC al robot que NO se necesita en la práctica EtherNet/IP?", opts:["Un PC con TIA Portal","La manguera de 20 hilos W1, el bornero XB1 de 32 bornes y la tarjeta DSQC1030","Un switch Ethernet","Un cable de red Ethernet"], ans:1, exp:"En la práctica cableada cada señal discreta requiere un conductor físico mediante la manguera W1, el bornero XB1 y la tarjeta de E/S DSQC1030."},
+      {b:2, q:"En la práctica cableada, el START no hace nada al pulsar Marcha. ¿Qué síntoma indica la guía como causa probable?", opts:["El variador no tiene tensión","El cable Ethernet está desconectado","El archivo GSD está corrupto","La marca de ciclo no está activada en la CPU, el PP no está en Main, o el robot tiene un fallo"], ans:3, exp:"Para que el bloque FB_Robot_Minimo genere los pulsos de arranque y el robot los acepte, debe estar activa la marca de ciclo del PLC y el puntero en Main sin fallos."},
+      {b:2, q:"En la práctica cableada, ¿qué alimentación necesitan los relés de salida de la CPU S7-1200 (bornes 1L, 2L)?", opts:["+24 V DC (por F2, 2A) — es el común de los relés que cierran hacia el robot","230 V AC","0 V (tierra)","No necesitan alimentación separada"], ans:0, exp:"Los bornes 1L y 2L alimentan el común de los contactos de relé de la CPU con +24 V DC protegidos por fusible para enviar los niveles altos al robot."},
+      {b:2, q:"En la práctica cableada, tras una parada de emergencia por seta del FlexPendant, ¿cuál es la secuencia para restablecer el funcionamiento?", opts:["Soltar la seta, pulsar Reset y luego pulsar Marcha","Reiniciar el PLC desde TIA Portal","Apagar y encender el controlador del robot","Desconectar la manguera W1 y volver a conectarla"], ans:0, exp:"Primero debe desenclavarse físicamente la seta de emergencia, luego rearmar el fallo con Reset y finalmente dar orden de Marcha."},
+      {b:2, q:"En la práctica cableada, los motores del robot no se conectan al pulsar Marcha. La guía indica como causa: \"Robot no en Auto, seguridad no OK, o di01 sin invertir\". ¿Cuál es el orden correcto de diagnóstico?", opts:["Cambiar la manguera W1 completa","Cambiar la CPU del robot directamente","Verificar que el robot está en modo Auto (selector), que el vallado está cerrado (SeguridadOK = 1), y que di01_MotoresOff tiene Invert Physical Value = Yes","Reinstalar RobotStudio"], ans:2, exp:"Se sigue un orden lógico de comprobación: selector en modo Auto, circuito de seguridad cerrado e inversión lógica en di01_MotoresOff."},
+      {b:2, q:"En la práctica de la célula robot con E/S cableadas, ¿cuántas señales viajan por la manguera W1 entre el PLC S7-1200 y el robot ABB?", opts:["8 señales en un solo sentido","32 señales: 16 en cada sentido","16 señales: 8 órdenes del PLC + 8 estados del robot","4 bytes en cada sentido"], ans:2, exp:"La interfaz cableada mínima utiliza 8 salidas digitales del PLC hacia el robot y 8 salidas del robot hacia entradas del PLC (16 señales en total)."},
+      {b:2, q:"En la práctica cableada S7-1200 - robot ABB, ¿cuál es el punto susceptible de avería que se debe comprobar primero si ninguna señal del robot llega al PLC?", opts:["La versión de firmware del robot","La dirección IP del PLC","La marca de ciclo del OB1","La alimentación +24 V en el hilo 17 (PWR DO) y el 0 V común en el hilo 18"], ans:3, exp:"Si fallan todas las entradas procedentes del robot a la vez, la causa más directa es la falta de alimentación +24 V / 0 V común de su tarjeta de salidas."},
+      {b:2, q:"En la práctica cableada, ¿cómo se llama el DB de instancia que se crea al arrastrar FB_Robot_Minimo al OB1?", opts:["DB_Comunicaciones","DB_EthernetIP","DB_Profinet","DB_Robot1"], ans:3, exp:"Al instanciar el bloque de función FB_Robot_Minimo en el OB1 de TIA Portal se crea el bloque de datos de instancia DB_Robot1."},
+      {b:2, q:"En la práctica cableada, ¿qué entradas del PLC (I1.x) se conectan a los pulsadores y señales de la célula?", opts:["Q0.0 a Q0.7","No hay pulsadores en la práctica cableada","I1.0 = Marcha, I1.1 = Reset, I1.2 = SeguridadOK, I1.3 = Area1OK, I1.4 = Maquina1OK","I0.0 a I0.7 (las mismas del robot)"], ans:2, exp:"El byte I0 recibe los estados del robot, mientras que las entradas I1.0 a I1.4 recogen los pulsadores de mando y permisos de la célula."},
+      {b:2, q:"En la práctica cableada, la señal llega al PLC pero con valor incorrecto (siempre a 1 cuando debería alternar). La causa probable es:", opts:["El switch no funciona","Fallo lógico: el programa RAPID no cambia la salida, o hay un cortocircuito entre el hilo de señal y +24V en la manguera","Solo puede ser un fallo de software","La dirección IP está mal configurada"], ans:1, exp:"Una señal clavada a 1 continuo se debe a que la salida no conmuta en RAPID o a una derivación física del hilo hacia +24 V."},
+      {b:2, q:"En la práctica cableada, el bloque FB_Robot_Minimo del PLC se puede programar de dos formas. ¿Cuáles son?", opts:["Solo en SCL, no admite LAD","Se programa en RAPID y se carga por red","Solo se importa como librería compilada","Opción A: picar los 10 segmentos en LAD; Opción B: importar el archivo SCL desde fuentes externas"], ans:3, exp:"La guía permite programar manualmente los 10 segmentos en diagrama de contactos (LAD) o importar directamente el código fuente SCL."},
+      {b:2, q:"En la práctica cableada, el robot se para nada más arrancar en automático. La causa es \"di04 sin invertir (Stop activo)\". ¿Qué reparación se debe aplicar?", opts:["Cambiar la CPU del PLC por un modelo con más entradas","Cambiar el cable de la manguera W1","En la configuración de señales del robot (I/O System), poner Invert Physical Value = Yes en di04_HabMov","Desactivar el circuito de seguridad del robot"], ans:2, exp:"Las señales de parada/habilitación trabajan con lógica positiva de seguridad (1 = habilitar), por lo que di04_HabMov requiere inversión física en ABB."},
+      {b:2, q:"En la práctica cableada, ¿a qué System Input del robot se asigna la señal di02_Start?", opts:["Start (con Cycle: Continuous)","Motors Off","Reset Emergency Stop","Motors On"], ans:0, exp:"La entrada digital di02_Start se vincula a la entrada de sistema Start configurada en modo continuo (Cycle: Continuous)."},
+      {b:2, q:"En la práctica cableada, ¿en qué modo debe estar el puntero de programa del robot y en qué procedimiento (PROC) para arrancar correctamente?", opts:["En cualquier modo y procedimiento","En modo paso a paso y en Programa1","En modo cíclico y en ResetSenales","El modo de ejecución debe ser Continuo y el puntero en main (PP a Main)"], ans:3, exp:"Para ejecutar ciclos completos en automático sin detenerse tras cada instrucción, el modo debe ser Continuo y el puntero inicializado en main."},
+      {b:2, q:"En la práctica cableada, ¿cómo funciona el ciclo paso a paso cuando el PLC envía la orden de inicio?", opts:["El robot ejecuta directamente sin coordinación con el PLC","El robot funciona solo con el FlexPendant","El PLC envía todo el programa por red al robot","El PLC activa Marcha, el robot enciende motores, va a HOME, pide programa, el PLC le da área preparada, el robot entra, trabaja, sale, señala trabajo terminado, espera MáquinaOK y vuelve a HOME"], ans:3, exp:"La secuencia ejecuta un protocolo de sincronización (handshaking) mediante señales de permiso y confirmación para evitar colisiones en la célula."},
+      {b:2, q:"En la práctica cableada, ¿cuántos hilos tiene la manguera W1 y de qué tipo es?", opts:["4 pares trenzados Cat 5e","20 hilos, manguera numerada apantallada 21G0,75","2 hilos + pantalla, cable PROFIBUS violeta","8 hilos, cable plano sin apantallar"], ans:1, exp:"Se emplea una manguera apantallada multipolar de sección 0,75 mm² con 20 conductores numerados más tierra (21G0,75)."},
+      {b:2, q:"En la práctica cableada, ¿qué System Output del robot corresponde a la señal do03_Fallo?", opts:["Cycle On","Execution Error","Auto On","Motors On State"], ans:1, exp:"La salida de sistema Execution Error se activa cuando ocurre un fallo de ejecución en RAPID y se mapea a do03_Fallo."},
+      {b:2, q:"En la práctica cableada, tras reparar un hilo cortado en la manguera W1, ¿cuáles son las 4 comprobaciones post-reparación de la lista de la guía?", opts:["Cambiar todos los conectores por precaución","Continuidad de los 18 hilos con polímetro, puentes en XB1 correctos, no hay corto entre +24V y 0V, comprobar señales una a una forzándolas","Solo probar en automático y verificar que funciona","Compilar software, descargar programa, configurar IP, hacer backup"], ans:1, exp:"Antes de poner en marcha se verifica continuidad punto a punto, puentes de alimentación en XB1, ausencia de cortocircuitos y prueba individual de E/S."},
+      {b:2, q:"En la práctica cableada, la señal llega a otra di/do del robot en vez de a la esperada. ¿Qué indica este síntoma?", opts:["La CPU del PLC tiene un fallo de hardware","El bornero XB1 está defectuoso","El programa RAPID está corrupto","Se ha cableado por el número serigrafiado de la DSQC1030 (que es número de E/S) en vez de seguir la tabla de hilos 4.2 (que es por pin)"], ans:3, exp:"En la tarjeta DSQC1030 el número de borne físico no coincide correlativamente con el índice lógico de entrada/salida, debiendo seguirse la tabla de pines."},
+      {b:2, q:"¿Qué lenguaje de programación utiliza el robot ABB para el programa de la célula?", opts:["RAPID","SCL (Structured Control Language)","LAD (Ladder Diagram)","Python"], ans:0, exp:"RAPID es el lenguaje nativo de programación de alto nivel de los controladores de robots industriales ABB."},
+      {b:2, q:"En la práctica cableada, las órdenes del PLC no llegan al robot. La causa probable es:", opts:["La marca de ciclo no está activada","El robot está en modo T1","Fallo en el programa RAPID","Falta 0 V en GND DI (X2.9/X2.18) o +24 V en 1L/2L de la CPU"], ans:3, exp:"Para cerrar el circuito eléctrico entre los relés del S7-1200 y las entradas de la DSQC1030 hacen falta +24 V en 1L/2L y 0 V en GND DI."},
+      {b:2, q:"En la práctica cableada, se detecta un error \"señal no existe\" en RAPID al cargar Celula.mod. ¿Cuál es la causa y la reparación?", opts:["El programa RAPID tiene un virus","El cable Ethernet está desconectado","La CPU del PLC no es compatible","Los nombres de señales en el programa no coinciden con los creados en la configuración de I/O System del robot (apartado 5.1 de la guía); hay que verificar que coinciden exactamente"], ans:3, exp:"RAPID referencia las señales por su identificador simbólico exacto definido en la configuración EIO / I/O System del controlador."},
+      {b:2, q:"En la práctica cableada, ¿qué se debe activar en las propiedades de la CPU S7-1200 en TIA Portal antes de cargar el programa?", opts:["El protocolo Modbus RTU","La marca de ciclo (Marca de sistema y de ciclo, byte MB0 por defecto)","El modo IRT de PROFINET","El servidor OPC UA"], ans:1, exp:"El bloque FB_Robot_Minimo utiliza los bits de reloj de la marca de ciclo (MB0) del S7-1200 para generar los flancos y temporizaciones de control."},
+      {b:2, q:"En la práctica cableada, ¿qué hace la rutina ResetSenales del programa RAPID?", opts:["Apaga los motores del robot","Resetea todos los fallos de comunicación","En HOME, pone do06, do07 y do08 a 0 y espera a que el PLC quite MáquinaOK1","Borra la memoria del controlador"], ans:2, exp:"Al iniciar o finalizar el ciclo en HOME, ResetSenales limpia las salidas de estado del trabajo (do06–do08) y espera que el PLC retire MáquinaOK1."},
+      {b:2, q:"En la práctica cableada, ¿qué hace el programa RAPID del robot cuando vuelve a HOME después de completar un trabajo?", opts:["Envía un mensaje por Ethernet al PLC","Pone do06, do07 y do08 a 0 (resetea señales) y espera a que el PLC quite MáquinaOK1","Ejecuta automáticamente el siguiente programa","Apaga los motores y se queda en espera indefinida"], ans:1, exp:"Al retornar a HOME tras la tarea, el robot invoca el reseteo de señales de proceso (do06–do08 a 0) y aguarda el flanco de bajada de MáquinaOK1."},
+      {b:2, q:"En la práctica cableada, el robot no sale de HOME tras pulsar Marcha. La guía indica como causas: falta Marcha o área 1 OK (I1.3), o MÁQUINA OK se ha quedado a 1 y el programa está en un WaitDI. ¿Cómo se diagnostica?", opts:["Cambiar el programa RAPID completo","Mirar en la tabla de observación de TIA Portal si Marcha, Area1OK y MáquinaOK tienen los valores esperados, y en el FlexPendant verificar en qué WaitDI está parado el puntero del programa","Reinstalar TIA Portal","Desconectar la manguera y reconectarla"], ans:1, exp:"Combinando la tabla de observación de TIA Portal con el puntero de ejecución en el FlexPendant se identifica exactamente qué condición WaitDI bloquea el avance."},
 
-      // ===================== BLOQUE 3 (57–70) =====================
-      {b:3, q:"En PROFINET, ¿cuáles son los tres roles funcionales de los dispositivos?", opts:["Cliente, servidor y broker","Maestro, esclavo y repetidor","IO-Controller, IO-Device e IO-Supervisor","Scanner, Adapter y Monitor"], ans:2, exp:"PROFINET define IO-Controller (PLC maestro), IO-Device (periferia/esclavo de campo) e IO-Supervisor (herramienta de ingeniería/diagnóstico)."},
-      {b:3, q:"¿Qué información contiene un archivo GSDML de un dispositivo PROFINET?", opts:["Solo la dirección MAC del dispositivo","Solo el precio del dispositivo","El programa PLC que hay que cargar","La descripción del dispositivo: módulos, subslots, datos de proceso, parámetros, diagnóstico y datos de identificación, en formato XML"], ans:3, exp:"El GSDML (General Station Description Markup Language) es un fichero XML que describe toda la estructura modular y parámetros del IO-Device."},
-      {b:3, q:"En una red PROFINET, un IO-Device ha dejado de comunicar tras una tormenta eléctrica. El LED de enlace Ethernet está apagado. ¿Cuál es la acción de reparación más adecuada?", opts:["Reiniciar el switch 5 veces","Comprobar si el puerto Ethernet del dispositivo está dañado; si es así, sustituir el dispositivo o su módulo de comunicación","Cambiar la topología de estrella a anillo","Cambiar el archivo GSDML"], ans:1, exp:"Las sobretensiones transitorias suelen dañar el transceptor físico (PHY) del puerto RJ-45, dejando el LED Link apagado y obligando a sustituir el módulo."},
-      {b:3, q:"En PROFINET, ¿qué diferencia hay entre comunicación RT (Real Time) e IRT (Isochronous Real Time)?", opts:["No hay diferencia, son el mismo modo con distinto nombre","RT consigue tiempos de 1-10 ms sobre Ethernet estándar; IRT consigue tiempos inferiores a 1 ms reservando ranuras temporales en el switch","RT funciona a 1 Gbit/s e IRT a 100 Mbit/s","RT es para PROFIBUS e IRT para PROFINET"], ans:1, exp:"RT omite TCP/IP para lograr tiempos de ciclo de 1–10 ms en switches estándar, mientras IRT usa sincronización por hardware (< 1 ms) para control de ejes."},
-      {b:3, q:"En una red PROFINET con topología en anillo MRP, el anillo se ha abierto por un cable cortado pero la comunicación sigue funcionando. ¿Qué indica esto y qué acción se debe tomar?", opts:["MRP ha reconvertido el anillo en línea automáticamente, pero se ha perdido la redundancia; se debe reparar el cable cuanto antes para restaurar la protección del anillo","El anillo MRP no sirve para nada","No hay que hacer nada, el anillo siempre funciona con un corte","Hay que reiniciar todos los switches"], ans:0, exp:"El gestor MRP cierra el puerto de redundancia en menos de 200 ms manteniendo la producción, pero deja la red sin tolerancia ante un segundo fallo."},
-      {b:3, q:"Clasifica la siguiente avería: \"El nombre de estación de un IO-Device PROFINET se ha borrado tras un reseteo de fábrica\". Es una avería de naturaleza:", opts:["Mecánica","Electromagnética","Lógica (configuración)","Física"], ans:2, exp:"El cableado y el hardware están intactos; el fallo reside en la pérdida de un parámetro lógico de direccionamiento PROFINET (Device Name)."},
-      {b:3, q:"¿Cuál es la principal diferencia entre PROFINET RT e IRT en cuanto a hardware necesario?", opts:["RT funciona con switches Ethernet estándar; IRT requiere switches especiales con soporte de ranuras temporales sincronizadas","RT necesita switches más caros que IRT","No hay diferencia de hardware","IRT funciona sin switches"], ans:0, exp:"PROFINET IRT exige controladores ASIC y switches gestionados compatibles con planificación isócrona (cut-through y reserva de ancho de banda)."},
-      {b:3, q:"En PROFINET, ¿qué protocolo se utiliza para asignar nombres de estación a los dispositivos IO?", opts:["ARP","DCP (Discovery and Configuration Protocol)","LLDP","DHCP"], ans:1, exp:"El protocolo DCP de capa 2 permite descubrir dispositivos en la red por su MAC y asignarles su Name of Station e IP."},
-      {b:3, q:"Tras sustituir un switch dañado en una red PROFINET, ¿qué comprobaciones se deben realizar para restablecer el funcionamiento?", opts:["Verificar que todos los IO-Devices vuelven a estar en línea, comprobar que no hay LEDs BF/SF en rojo, y confirmar el intercambio de datos en la tabla de observación","Recargar todos los programas RAPID","Reformatear todas las CPUs de la red","Solo encender el switch y esperar"], ans:0, exp:"Se debe verificar el enlace online de todos los dispositivos, la extinción de alarmas Bus Fault/System Fault y el refresco real de variables."},
-      {b:3, q:"¿Qué protocolo permite a un técnico de mantenimiento supervisar remotamente el estado de un PLC PROFINET desde la oficina, dentro de la misma planta?", opts:["Solo se puede hacer estando físicamente junto al PLC","Únicamente con un cable serie RS-232","Mediante la función IO-Supervisor desde un PC conectado a la misma red PROFINET","Solo mediante una llamada telefónica al operario"], ans:2, exp:"El rol IO-Supervisor permite a una estación de ingeniería o diagnóstico acceder acíclicamente a los dispositivos de la red PROFINET."},
-      {b:3, q:"¿Qué información mínima necesita un técnico de la documentación del fabricante para seleccionar un switch industrial para una red PROFINET?", opts:["Número de puertos, velocidad (100 Mbit/s o Gigabit), soporte de MRP/anillo, gestión de VLANs, y si soporta IRT","Solo el precio y el color de la carcasa","Solo que tenga puertos RJ-45","Que sea de la misma marca que el PLC"], ans:0, exp:"La hoja técnica debe confirmar puertos necesarios, ancho de banda y soporte de protocolos PROFINET como LLDP, MRP o IRT según la aplicación."},
-      {b:3, q:"Un enlace IE/PB Link en una instalación PROFINET-PROFIBUS actúa como:", opts:["Proxy que traduce entre protocolo PROFINET y PROFIBUS DP","Repetidor que amplifica la señal RS-485","Servidor OPC UA para acceso remoto","Switch gestionado con funciones de VLAN"], ans:0, exp:"El IE/PB Link integra segmentos PROFIBUS DP existentes dentro de un controlador PROFINET IO actuando como pasarela/proxy."},
-      {b:3, q:"Al seleccionar un variador de frecuencia para una red PROFINET, ¿qué dato técnico del catálogo confirma que soporta comunicación cíclica RT?", opts:["Solo el voltaje nominal","La especificación de conformance class PROFINET (p. ej. CC-B o CC-C) y el archivo GSDML disponible para descarga","El peso en kilogramos","El color de la carcasa"], ans:1, exp:"Las Conformance Classes (CC-A, CC-B, CC-C) certifican el nivel de funciones PROFINET soportadas y requieren su archivo GSDML oficial."},
-      {b:3, q:"En una red PROFINET, un IO-Device muestra el LED SF (System Fault) en rojo fijo. ¿Qué indica?", opts:["El dispositivo está en modo de ahorro de energía","El dispositivo funciona correctamente","Existe un fallo de hardware o de configuración grave en el dispositivo","La comunicación RT está activa"], ans:2, exp:"El indicador SF (System Fault) alerta de un error interno del módulo, fallo de diagnóstico de canal o discrepancia de parametrización."},
+      // ===================== BLOQUE 3: CÉLULA ROBOT ABB — PRÁCTICA ETHERNET/IP (63–93) =====================
+      {b:3, q:"En la práctica EtherNet/IP, el robot se mueve en manual pero no se puede controlar desde el PLC. La causa probable es:", opts:["El programa RAPID tiene un bucle infinito","Sin comunicación activa, el robot ve MOTORES OFF = 0 y HABILITAR MOVIMIENTOS = 0, lo que permite el manual pero bloquea el automático desde PLC; hay que conectar el PLC o simular di_MotoresOff = 0 y di_HabMov = 0","El cable Ethernet está desconectado (sería isActive = 0)","El switch no tiene alimentación PoE"], ans:1, exp:"Sin enlace cíclico activo, las entradas mapeadas del robot permanecen a 0, inhibiendo el automático desde PLC pero permitiendo el movimiento manual."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué indica el byte 2 del sentido PLC→Robot?", opts:["ÁREA PREPARADA 1 a 8 (un bit por área)","La velocidad del robot","NÚMERO DE PROGRAMA","MOTORES OFF y START EXTERNO"], ans:0, exp:"El byte 2 del ensamblado de salida del PLC codifica bit a bit la autorización de acceso para las áreas 1 a 8."},
+      {b:3, q:"En la práctica EtherNet/IP, cuando el robot pide un número de programa al PLC, ¿cómo confirma el PLC que lo ha recibido correctamente?", opts:["Se usa un handshake de 3 vías como en TCP/IP","El PLC escribe el número de programa y el robot devuelve un eco; el PLC comprueba que el eco coincide y pone el número a 0","El PLC no confirma; el robot ejecuta directamente","El PLC envía un ACK por TCP en el puerto 44818"], ans:1, exp:"Se implementa un protocolo de confirmación por eco: el PLC envía el código de programa, verifica el eco devuelto por el robot y lo pone a 0."},
+      {b:3, q:"En la práctica EtherNet/IP, el robot pide programa y el PLC no lo envía. Es una avería de tipo:", opts:["Lógica (falta la señal Marcha, o NumProgramaSel está a 0 en el programa del PLC)","Física (cable cortado)","Electromagnética","De firmware incompatible"], ans:0, exp:"Si la red comunica correctamente pero no se envía el número de programa, el origen está en las condiciones lógicas del programa del PLC."},
+      {b:3, q:"En la práctica EtherNet/IP, el robot da el error \"No contact with device\" (isActive = 0). Se ha comprobado que el ping funciona entre los tres equipos. ¿Cuál es la siguiente acción de reparación?", opts:["Cambiar el cable Ethernet por uno de categoría 6A","Reformatear el disco duro del PC","Cambiar el switch por uno industrial gestionado","Verificar que los tamaños de ensamblado (100 y 112) coinciden en PLC y robot, y que la librería LCCF_EnetScanner está en RUN (enable)"], ans:3, exp:"Si hay conectividad IP (ping OK) pero no sesión CIP, debe revisarse la coincidencia de instancias de Assembly (100/112) y la habilitación del bloque escáner."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué ocurre con el robot si se desenchufa el cable de red estando en automático?", opts:["El PLC conmuta automáticamente a la interfaz cableada","El robot pone sus entradas a 0, pierde motores (isActive = 0); al reconectar se debe hacer Reset y Marcha","El robot guarda su posición y espera 30 segundos antes de parar","El robot continúa trabajando normalmente"], ans:1, exp:"Al perderse la comunicación cíclica, las entradas virtuales caen a 0 por seguridad (desconexión de motores) y requieren Reset y Marcha al reconectar."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué señales nuevas aparecen respecto a la práctica cableada en el byte 0 Robot→PLC?", opts:["TEMPERATURA y PRESIÓN","VELOCIDAD DEL ROBOT y PAR DEL MOTOR","MODO T1 (bit 6) y POSICIÓN DE MANTENIMIENTO (bit 7)","No hay señales nuevas"], ans:2, exp:"Al disponer de bytes completos en EtherNet/IP se añaden los bits 6 (Modo manual T1) y 7 (Robot en posición de mantenimiento) en el byte 0."},
+      {b:3, q:"En la práctica EtherNet/IP, tras reconectar un cable de red desconectado, ¿qué secuencia restaura la operación del robot?", opts:["Esperar a que isActive vuelva a 1, luego pulsar Reset y después Marcha","Recargar el programa RAPID","Reiniciar el switch, el PLC y el robot en ese orden","Solo esperar, se recupera solo"], ans:0, exp:"Debe confirmarse el restablecimiento de la sesión CIP (isActive = 1) antes de pulsar Reset para borrar el fallo y Marcha para reanudar."},
+      {b:3, q:"En la práctica EtherNet/IP, Marcha no hace nada. ¿Cuáles son las causas probables según la guía?", opts:["El cable Ethernet está cortado","El archivo GSDML es incorrecto","El variador no tiene par suficiente","SeguridadOK, ComOK o Estado.Automatico están a 0"], ans:3, exp:"El bloque de control en el PLC exige como condiciones previas que la seguridad esté OK, la comunicación activa y el robot en modo Automático."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿cuántos programas diferentes puede seleccionar el PLC para que ejecute el robot?", opts:["Solo 1 programa (como en la práctica cableada)","Ilimitados, mediante un String de texto","Hasta 8 programas, uno por área","Hasta 254 programas regulares más el 255 para mantenimiento"], ans:3, exp:"Un byte entero (0–255) permite codificar hasta 254 programas de trabajo reservando el valor 255 para posición de mantenimiento."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿cada cuánto tiempo se intercambian datos entre el PLC (escáner) y el robot (adaptador)?", opts:["Solo cuando se pulsa Marcha","Solo bajo demanda del operador","Cada 50 ms de forma cíclica","Una vez por segundo"], ans:2, exp:"El intervalo RPI (Requested Packet Interval) configurado en la práctica establece un refresco cíclico determinista cada 50 ms."},
+      {b:3, q:"Tras restablecer la comunicación en una red EtherNet/IP, ¿qué 4 pasos de comprobación se deben seguir?", opts:["Verificar isActive = 1 en el DB, comprobar que las señales de estado del robot llegan correctamente, probar el ciclo en manual (T1) y finalmente probar en automático a velocidad reducida","Reformatear el PLC y recargar todo","Solo verificar que el LED verde está encendido","Cambiar todos los cables por precaución"], ans:0, exp:"La puesta en marcha segura valida primero la comunicación en el DB, luego el mapeo de señales y finalmente la prueba en T1 antes de Auto reducido."},
+      {b:3, q:"¿Por qué en la práctica EtherNet/IP la seguridad (setas, puertas, vallado) sigue cableada aparte y no viaja por la red?", opts:["Porque el cable Ethernet no soporta 24V","Porque EtherNet/IP no es un bus de seguridad; las señales de seguridad deben ir por un circuito dedicado independiente de la comunicación de datos","Porque EtherNet/IP no puede transmitir señales digitales","Porque la guía está equivocada y sí se puede hacer por red"], ans:1, exp:"El EtherNet/IP estándar no está certificado como bus funcional seguro (CIP Safety); las paradas de emergencia deben ir por circuitos cableados dedicados."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿cuál es la IP del robot ABB (adaptador) y cuál la del PLC S7-1200 (escáner)?", opts:["PLC: 192.168.0.10, Robot: 192.168.0.1","Ambos tienen la misma IP con puertos diferentes","PLC: 10.0.0.1, Robot: 10.0.0.10","PLC: 192.168.0.1, Robot: 192.168.0.10"], ans:3, exp:"Dentro de la subred 192.168.0.0/24 de la célula, el PLC escáner tiene la dirección .1 y el robot adaptador la .10."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué librería de Siemens se instala en TIA Portal para que el S7-1200 actúe como escáner EtherNet/IP?", opts:["PROFINET_Library","Modbus_TCP_Client","OPC_UA_Server","LCCF_EnetScanner"], ans:3, exp:"Siemens proporciona la librería gratuita LCCF_EnetScanner para implementar la funcionalidad de escáner EtherNet/IP en controladores S7-1200/1500."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué tamaños de ensamblado (assembly) se configuran en el S7-1200 para comunicar con el robot ABB?", opts:["Input assembly 100, Output assembly 112","Input assembly 1, Output assembly 1","Input 4 bytes, Output 4 bytes (sin assembly)","Input 50 bytes, Output 50 bytes"], ans:0, exp:"El dispositivo interno EtherNet/IP de ABB OmniCore utiliza por defecto las instancias de ensamblado 100 (entradas hacia PLC) y 112 (salidas desde PLC)."},
+      {b:3, q:"¿Qué significa que la comunicación EtherNet/IP entre PLC y robot sea \"implícita\"?", opts:["Que los datos se intercambian cíclicamente de forma automática a un intervalo fijo (RPI), sin necesidad de que el programa PLC envíe comandos de lectura/escritura explícitos","Que la comunicación está oculta y no se puede diagnosticar","Que usa protocolo TCP garantizado","Que solo se comunican cuando el operador lo pide"], ans:0, exp:"Los mensajes implícitos (Clase 1) transportan datos de E/S en tiempo real de manera cíclica y automática según el periodo RPI."},
+      {b:3, q:"¿Cuál es el medio físico utilizado en la práctica EtherNet/IP entre el S7-1200 y el robot ABB?", opts:["Manguera de 20 hilos con bornero XB1","Cable Ethernet estándar (un solo cable de red por equipo, a través de un switch)","Cable PROFIBUS violeta RS-485","Fibra óptica multimodo"], ans:1, exp:"La interconexión se realiza en topología estrella mediante latiguillos Ethernet estándar RJ-45 conectados a un switch."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿se puede ampliar el número de señales sin añadir cables físicos?", opts:["Solo si se duplica el switch","Sí, basta con aumentar el tamaño de los assembly (más bytes) en la configuración del PLC y del robot, sin tocar el cableado Ethernet","No, siempre hay que añadir cables","Solo si se cambia a fibra óptica"], ans:1, exp:"La ampliación es puramente lógica: basta redimensionar los bytes de entrada/salida de los ensamblados y mapear las nuevas señales."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué valor debe enviar el PLC en el byte 1 (NÚMERO DE PROGRAMA) para que el robot vaya a la posición de mantenimiento?", opts:["0","254","255","1"], ans:2, exp:"El código decimal 255 está reservado en el protocolo de la célula para ordenar al robot desplazarse a la posición segura de mantenimiento."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿cuál de los siguientes es un punto susceptible de avería que NO existía en la práctica cableada?", opts:["Los pulsadores de Marcha y Reset","La alimentación de 24V de la CPU","La manguera W1 y el bornero XB1","La configuración de IPs, cortafuegos del robot y tamaños de assembly"], ans:3, exp:"Al sustituir hilos por comunicación de red aparecen parámetros lógicos críticos como direccionamiento IP, firewall del controlador y tamaño de ensamblados."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué opción de cortafuegos del robot ABB (OmniCore) debe estar habilitada para permitir la comunicación?", opts:["Puerto UDP 34964 (PROFINET)","No hay cortafuegos en el OmniCore","Opción 3024-2 (EtherNet/IP)","Puerto TCP 502 (Modbus)"], ans:2, exp:"En los controladores ABB OmniCore es necesario habilitar en el firewall la opción de software 3024-2 correspondiente a EtherNet/IP."},
+      {b:3, q:"En la práctica EtherNet/IP, el campo isActive del DB_Robot1 vale 0 y el robot muestra \"No contact with device\". ¿Qué indica este síntoma?", opts:["El robot está en modo manual T1","El variador no responde al telegrama","El programa RAPID tiene un error de sintaxis","No hay comunicación de red entre PLC y robot: comprobar ping, IPs, tamaños de ensamblado y cortafuegos"], ans:3, exp:"Tanto isActive = 0 en el PLC como 'No contact with device' en el FlexPendant indican que no se ha establecido la conexión cíclica CIP."},
+      {b:3, q:"En la práctica EtherNet/IP, hay comunicación (isActive = 1) pero las señales del robot salen cambiadas (una señal aparece en otra posición). ¿Cuál es la reparación?", opts:["Revisar el Device Mapping de las señales del robot y el orden de bytes en los bloques de mapeo del PLC","Cambiar la IP del PLC","Cambiar el cable Ethernet por uno apantallado","Reinstalar el firmware del robot"], ans:0, exp:"Cuando hay enlace activo pero las señales están desplazadas, existe un desajuste en el mapeo de bits/bytes entre el UDT del PLC y el I/O System del robot."},
+      {b:3, q:"En la tabla comparativa de la guía EtherNet/IP, ¿qué cambia en el programa del PLC respecto a la práctica cableada?", opts:["Solo cambia el nombre de las variables","No cambia nada, es el mismo programa","En la cableada se usan variables directas %I/%Q; en EtherNet/IP se usa un DB del robot (UDT) + bloques de mapeo y librería LCCF_EnetScanner","En EtherNet/IP no hace falta programa de PLC"], ans:2, exp:"En EtherNet/IP las señales no van a bornes físicos %I/%Q, sino que se empaquetan en un UDT dentro de un DB gestionado por LCCF_EnetScanner."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué ocurre cuando el robot está en posición de mantenimiento y el PLC le envía el programa 1 o 2?", opts:["El robot ignora el comando","El PLC da un error de comunicación","El robot se apaga","El robot vuelve a HOME y sigue con el programa indicado"], ans:3, exp:"Al recibir un número de programa de trabajo válido (1 o 2), el robot abandona la posición de mantenimiento, retorna a HOME y ejecuta la rutina."},
+      {b:3, q:"¿Qué diferencia hay entre la configuración de señales del robot en la práctica cableada y en la práctica EtherNet/IP?", opts:["En la cableada las señales se asignan al conector X5 (DSQC1030); en EtherNet/IP se asignan a EN_Internal_Device (opción 3024-2)","No hay ninguna diferencia","En la cableada se usan 32 señales y en EtherNet/IP solo 8","En EtherNet/IP no hay señales, solo se usa OPC UA"], ans:0, exp:"El mapeo de señales en ABB cambia el dispositivo destino: de la tarjeta física DSQC1030 (conector X5) al dispositivo virtual EN_Internal_Device."},
+      {b:3, q:"En la práctica EtherNet/IP, no se puede mover el robot en manual aunque el controlador está encendido. La guía indica que sin comunicación activa el robot ve MOTORES OFF y STOP. ¿Qué reparación temporal permite mover en manual?", opts:["Reiniciar el router de la oficina","Conectar el PLC y establecer comunicación, o simular di_MotoresOff = 0 y di_HabMov = 0 desde el FlexPendant (y quitar la simulación después)","Cambiar el robot por otro modelo","Desconectar permanentemente la tarjeta DSQC1030"], ans:1, exp:"Forzar temporalmente la simulación de ambas señales en el FlexPendant libera el bloqueo mientras se trabaja sin PLC, debiendo retirarse al finalizar."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué ventaja ofrece el mecanismo de múltiples programas (1-254) + mantenimiento (255) frente a la práctica cableada?", opts:["Permite seleccionar remotamente qué trabajo ejecuta el robot y enviarlo a posición de mantenimiento sin recablear ni cambiar programa, escalando a 8 áreas y 8 máquinas","El robot es más rápido por EtherNet/IP","No hay ninguna ventaja, es más complicado","Solo sirve para ahorrar cable"], ans:0, exp:"La codificación por bytes permite gestionar recetas múltiples, zonas y rutinas de mantenimiento de forma escalable sin modificar el hardware."},
+      {b:3, q:"¿Qué significa el término RPI (Requested Packet Interval) en EtherNet/IP?", opts:["El intervalo de tiempo configurado entre envíos de datos cíclicos del escáner al adaptador","La dirección IP del router","El tamaño máximo del paquete en bytes","El número de reintentos antes de dar error"], ans:0, exp:"El RPI define la cadencia temporal (en milisegundos) con la que se producen y consumen los paquetes de datos cíclicos implícitos."},
+      {b:3, q:"En la práctica EtherNet/IP, ¿qué puerto del robot ABB OmniCore E10 se utiliza para conectar el cable Ethernet de comunicación?", opts:["El puerto PROFINET (X1)","El puerto USB del FlexPendant","El puerto WAN del OmniCore E10","El puerto serie RS-232"], ans:2, exp:"En el controlador ABB OmniCore E10, la red industrial de planta/célula para EtherNet/IP se conecta a través de la interfaz WAN."},
 
-      // ===================== BLOQUE 4 (71–99) =====================
-      {b:4, q:"Tras restablecer el funcionamiento de un esclavo PROFIBUS DP, ¿qué indicador confirma que la comunicación se ha recuperado completamente?", opts:["Que la velocidad sea exactamente 9600 baud","Solo que el LED de alimentación esté verde","Que el esclavo aparezca en línea en el diagnóstico del maestro, que el intercambio de datos cíclicos funcione y que no haya errores en el buffer de diagnóstico","Que el cable sea de color violeta"], ans:2, exp:"La recuperación total exige estado online en el diagnóstico del maestro, actualización de datos cíclicos y ausencia de eventos de error activos."},
-      {b:4, q:"En una red PROFIBUS DP, se detectan errores intermitentes de comunicación en todo el segmento. Las terminaciones están correctas. ¿Cuál es la acción de reparación más probable?", opts:["Cambiar todos los esclavos","Buscar un punto de daño en el cable (empalme defectuoso, aplastamiento, proximidad a fuentes EMI) y reparar o reencaminar el tramo afectado","Reducir la velocidad a 9600 baud","Añadir más esclavos al segmento"], ans:1, exp:"Fallos globales intermitentes con terminadores correctos suelen deberse a degradación física del bus RS-485 o acoplamiento de interferencias electromagnéticas."},
-      {b:4, q:"¿Cuál de los siguientes buses fue desarrollado por Beckhoff y es ampliamente usado con controladores Omron?", opts:["EtherCAT","DeviceNet","PROFIBUS DP","CC-Link IE"], ans:0, exp:"EtherCAT (Ethernet for Control Automation Technology) fue creado por Beckhoff y adoptado por Omron como bus principal de automatización."},
-      {b:4, q:"¿Cuántos esclavos máximos admite una red AS-i?", opts:["32","126","62","254"], ans:2, exp:"Con direccionamiento extendido A/B (versión 2.1/3.0), el bus AS-Interface soporta hasta 62 esclavos por maestro."},
-      {b:4, q:"¿Qué distancia máxima permite DeviceNet a su velocidad más baja (125 kbit/s)?", opts:["20 metros","500 metros","1200 metros","100 metros"], ans:1, exp:"En DeviceNet existe una relación inversa entre velocidad y longitud de troncal: 100 m a 500 kbit/s, 250 m a 250 kbit/s y hasta 500 m a 125 kbit/s."},
-      {b:4, q:"¿Qué tipo de archivo de descripción utiliza IO-Link para definir las características de un sensor o actuador?", opts:["EDS","GSD","IODD (IO Device Description)","GSDML"], ans:2, exp:"Cada dispositivo IO-Link dispone de su fichero XML IODD con sus parámetros, eventos y estructura de datos de proceso."},
-      {b:4, q:"Un sensor IO-Link muestra datos de proceso correctos pero el maestro indica \"parámetros no válidos\". ¿Qué síntoma sugiere?", opts:["El sensor se ha sustituido por uno del mismo modelo pero con firmware diferente, y los parámetros de backup no son compatibles","La red Ethernet del nivel superior está caída","El cable de 3 hilos está cortado","El maestro IO-Link está apagado"], ans:0, exp:"La función Data Storage del maestro IO-Link intenta restaurar parámetros guardados, pero falla si la revisión de firmware/perfil del sensor nuevo difiere."},
-      {b:4, q:"¿Qué tipo de cable utiliza PROFIBUS DP como medio físico estándar?", opts:["Par trenzado apantallado de color violeta (RS-485)","Fibra óptica monomodo","Cable coaxial RG-58","Cable plano amarillo de dos hilos"], ans:0, exp:"El estándar PROFIBUS DP sobre RS-485 emplea cable de par trenzado apantallado de impedancia característica 150 Ω con cubierta violeta."},
-      {b:4, q:"¿Qué ventaja principal ofrece IO-Link frente a una conexión analógica 4-20 mA tradicional?", opts:["IO-Link funciona a mayor distancia que 4-20 mA","La señal 4-20 mA es más precisa que IO-Link","IO-Link transmite datos de proceso, diagnóstico y parámetros por el mismo cable de 3 hilos, además de permitir backup automático de configuración","IO-Link es más barato en todos los casos"], ans:2, exp:"IO-Link es comunicación digital punto a punto bidireccional sobre cable estándar sin apantallar de 3 hilos, aportando diagnóstico y parametrización remota."},
-      {b:4, q:"PROFIBUS PA se diferencia de PROFIBUS DP principalmente en que:", opts:["Usa Ethernet en lugar de RS-485","No necesita archivo GSD","Utiliza tecnología MBP a 31,25 kbit/s y permite su uso en zonas con riesgo de explosión (Ex)","Funciona a 12 Mbit/s como PROFIBUS DP"], ans:2, exp:"PROFIBUS PA emplea capa física MBP (Manchester Bus Powered) a 31,25 kbit/s con seguridad intrínseca y alimentación por el propio par de datos."},
-      {b:4, q:"¿Cuál de los siguientes buses opera en el nivel sensor/actuador de la pirámide de comunicaciones industriales?", opts:["CC-Link IE","EtherNet/IP","AS-i","PROFINET IO"], ans:2, exp:"AS-Interface (AS-i) está diseñado específicamente para el nivel inferior de sensores y actuadores binarios simples."},
-      {b:4, q:"¿Cuál es la distancia máxima de un enlace IO-Link punto a punto con cable estándar de 3 hilos sin apantallar?", opts:["100 metros","1200 metros","500 metros","20 metros"], ans:3, exp:"La especificación física de IO-Link limita la longitud máxima del cable entre maestro y dispositivo a 20 metros."},
-      {b:4, q:"¿Qué función realiza un acoplador DP/PA en una instalación PROFIBUS?", opts:["Convierte de Ethernet a RS-485","Interconecta un segmento PROFIBUS DP (RS-485) con un segmento PROFIBUS PA (MBP), cambiando de medio físico y velocidad","Amplifica la señal RS-485 sin cambiar de protocolo","Convierte señales analógicas 4-20 mA a digitales"], ans:1, exp:"El acoplador adapta eléctricamente el bus RS-485 de PROFIBUS DP al bus MBP intrínsecamente seguro de PROFIBUS PA (31,25 kbit/s)."},
-      {b:4, q:"En PROFIBUS DP, ¿qué método de acceso al medio se utiliza?", opts:["Acceso aleatorio sin control","TDMA con ranuras temporales fijas","Token passing entre maestros y polling maestro-esclavo","CSMA/CD como en Ethernet clásico"], ans:2, exp:"PROFIBUS utiliza un esquema híbrido determinista: paso de testigo (Token Passing) entre maestros y sondeo cíclico (Polling) de cada maestro a sus esclavos."},
-      {b:4, q:"¿Cuál de los siguientes buses utiliza el principio de procesamiento \"al vuelo\" (on-the-fly) donde cada esclavo lee y escribe su porción de trama mientras esta circula?", opts:["Modbus TCP","PROFIBUS DP","DeviceNet","EtherCAT"], ans:3, exp:"EtherCAT procesa los telegramas al vuelo mediante hardware dedicado en cada esclavo, logrando tiempos de ciclo de microsegundos."},
-      {b:4, q:"¿Cuántos nodos máximos admite una red DeviceNet?", opts:["64","32","254","126"], ans:0, exp:"DeviceNet utiliza un identificador MAC ID de 6 bits (direcciones 0 a 63), lo que permite un máximo de 64 nodos por red."},
-      {b:4, q:"¿Qué velocidad máxima alcanza CC-Link IE?", opts:["10 Mbit/s","12 Mbit/s","100 Mbit/s","1 Gbit/s"], ans:3, exp:"CC-Link IE (Industrial Ethernet) opera nativamente a 1 Gbit/s sobre par trenzado o fibra óptica."},
+      // ===================== BLOQUE 4: ARQUITECTURA, ESQUEMAS DE BLOQUES Y SELECCIÓN DE EQUIPOS (94–109) =====================
+      {b:4, q:"En el diagrama de bloques funcionales, ¿qué símbolo se usa para un maestro IO-Link como el NX-ILM400 de Omron?", opts:["IOL-M","SW","PLC","GW"], ans:0, exp:"La abreviatura normalizada IOL-M identifica a un maestro IO-Link que concentra sensores/actuadores hacia el bus superior."},
+      {b:4, q:"Al representar mediante bloques funcionales una red con un PLC S7-1200 que controla un variador por PROFINET y un robot por EtherNet/IP, ¿cuántos protocolos diferentes aparecen en el esquema?", opts:["Solo 1 si se usa el mismo switch","2 (PROFINET para el variador, EtherNet/IP para el robot)","3 (PROFINET, EtherNet/IP y PROFIBUS)","1 (todo es Ethernet)"], ans:1, exp:"Aunque compartan infraestructura física Ethernet, a nivel de aplicación coexisten dos protocolos industriales distintos: PROFINET IO y EtherNet/IP."},
+      {b:4, q:"En un diagrama de bloques funcionales de la célula robot, ¿qué elemento representa al PLC S7-1200?", opts:["IOL-M (Maestro IO-Link)","PLC (Controlador lógico programable)","VF (Variador de frecuencia)","GW (Gateway)"], ans:1, exp:"El bloque PLC identifica al controlador lógico programable encargado de la coordinación secuencial de la célula."},
+      {b:4, q:"Al comparar la práctica cableada con la práctica EtherNet/IP para seleccionar la tecnología de integración PLC-robot en un proyecto nuevo, ¿qué criterio técnico favorece la elección de EtherNet/IP?", opts:["EtherNet/IP no necesita programación","La práctica cableada nunca funciona correctamente","EtherNet/IP escala mejor: más señales sin recablear, múltiples programas/áreas/máquinas, eco de confirmación, y la misma infraestructura Ethernet sirve para diagnóstico y programación remota","EtherNet/IP es siempre más barato"], ans:2, exp:"El bus de campo elimina el cableado punto a punto, permite ampliar bytes de E/S por software y aprovecha la red Ethernet para ingeniería y diagnóstico."},
+      {b:4, q:"En un esquema de bloques funcionales, ¿qué símbolo representa a un variador de frecuencia?", opts:["PLC","IOL-M","SW","VF"], ans:3, exp:"Las siglas VF identifican al variador de frecuencia (convertidor de velocidad de motores) en los esquemas de bloques."},
+      {b:4, q:"Al representar mediante bloques funcionales una red con PROFIBUS DP que conecta a través de un acoplador DP/PA a instrumentación de zona Ex, ¿cuántos niveles de la pirámide se abarcan?", opts:["Solo el nivel sensor/actuador","Solo el nivel de campo","Dos niveles: campo (PROFIBUS DP) y sensor/actuador (PROFIBUS PA en zona Ex)","Los tres niveles completos (campo, célula y gestión)"], ans:2, exp:"PROFIBUS DP opera en el nivel de campo y PROFIBUS PA desciende al nivel de instrumentación/sensor-actuador en atmósferas explosivas."},
+      {b:4, q:"¿Qué criterios principales se deben considerar al seleccionar equipos para una red industrial, según la documentación técnica de los fabricantes?", opts:["Protocolo compatible, velocidad necesaria, número de puntos de E/S, distancia máxima, condiciones ambientales (temperatura, IP, zona Ex) y disponibilidad de archivos de descripción (GSD/GSDML/EDS/IODD)","Solo el precio más bajo","Solo que sea de la misma marca que el PLC","El color de la carcasa y el tamaño"], ans:0, exp:"La selección técnica exige verificar compatibilidad de protocolo, prestaciones temporales, capacidad de E/S, entorno industrial y ficheros de integración."},
+      {b:4, q:"En el diagrama de bloques funcionales de la célula robot con EtherNet/IP, ¿cuántos elementos de red principales aparecen?", opts:["PLC, variador, robot y HMI","Maestro PROFIBUS y 5 esclavos","PLC (escáner), switch Ethernet y robot (adaptador), más el PC de programación","Solo el PLC y el robot"], ans:2, exp:"La topología en estrella de la práctica EtherNet/IP interconecta tres equipos activos a través de un switch Ethernet: PLC, robot y PC."},
+      {b:4, q:"Al dibujar el esquema de bloques funcionales de la práctica cableada, ¿cómo se representa la conexión entre PLC y robot?", opts:["Con una línea Ethernet con símbolo de switch","Con una línea PROFIBUS violeta","Con una línea inalámbrica Wi-Fi","Con una línea de E/S digitales cableadas (manguera de señales discretas 24V)"], ans:3, exp:"Al no existir bus de campo entre ambos, el enlace se representa como un haz cableado de señales digitales discretas a 24 V DC."},
+      {b:4, q:"¿Qué información mínima necesita un técnico de la documentación del fabricante para seleccionar un switch industrial para una red PROFINET?", opts:["Número de puertos, velocidad (100 Mbit/s o Gigabit), soporte de MRP/anillo, gestión de VLANs, y si soporta IRT","Solo el precio y el color de la carcasa","Solo que tenga puertos RJ-45","Que sea de la misma marca que el PLC"], ans:0, exp:"La hoja técnica debe confirmar puertos necesarios, ancho de banda y soporte de protocolos PROFINET como LLDP, MRP o IRT según la aplicación."},
       {b:4, q:"¿Qué tipo de información se encuentra en el datasheet de un módulo de E/S remoto para EtherCAT?", opts:["Solo las instrucciones de montaje mecánico","Solo el peso del producto","El precio de venta al público","Número y tipo de canales (DI, DO, AI, AO), tiempo de ciclo mínimo, tensión de alimentación, grado de protección IP, temperatura de trabajo y archivos ESI (EtherCAT Slave Information)"], ans:3, exp:"La ficha técnica reúne las características eléctricas, mecánicas, ambientales, tiempos de actualización y referencia al fichero ESI XML."},
-      {b:4, q:"¿Cuál es la velocidad máxima de PROFIBUS DP?", opts:["1 Gbit/s","12 Mbit/s","500 kbit/s","100 Mbit/s"], ans:1, exp:"PROFIBUS DP admite velocidades escalonadas desde 9,6 kbit/s hasta un máximo de 12 Mbit/s."},
-      {b:4, q:"DeviceNet se basa en la tecnología de bus:", opts:["Ethernet IEEE 802.3","RS-485","CAN (Controller Area Network)","RS-232"], ans:2, exp:"DeviceNet implementa el protocolo CIP sobre la capa física y de enlace CAN (Controller Area Network)."},
-      {b:4, q:"Clasifica la siguiente avería: \"Un segmento PROFIBUS DP tiene la resistencia de terminación activada en una estación intermedia\". Es una avería de naturaleza:", opts:["Lógica (error de software)","De firmware","Electromagnética (interferencia externa)","Física (configuración incorrecta del medio físico)"], ans:3, exp:"Activar la terminación en un nodo intermedio desadapta la impedancia de la línea RS-485 y corta la propagación eléctrica hacia el resto del tramo."},
-      {b:4, q:"¿Cuántos hilos utiliza un cable DeviceNet estándar?", opts:["1 cable coaxial","8 hilos (4 pares como Ethernet)","2 hilos (como RS-485)","5 hilos (2 de datos CAN + 2 de alimentación + pantalla)"], ans:3, exp:"El cable Troncal/Drop de DeviceNet integra 5 conductores: par de datos (CAN_H, CAN_L), par de alimentación (24 V, 0 V) y malla de apantallamiento."},
-      {b:4, q:"¿En qué nivel de la pirámide de comunicaciones se sitúa típicamente EtherCAT?", opts:["Nivel de gestión empresarial (ERP)","Nivel de célula/planta","Nivel sensor/actuador exclusivamente","Nivel de campo (fieldbus)"], ans:3, exp:"EtherCAT es un bus de campo (fieldbus) de altas prestaciones que conecta el controlador con periferia distribuida, servoaccionamientos y maestros IO-Link."},
-      {b:4, q:"¿Cuál es el tiempo de ciclo máximo de AS-i para un bus completo con 62 esclavos?", opts:["1 segundo","100 ms","10 ms","1 ms"], ans:2, exp:"Un maestro AS-i sondea hasta 31 esclavos estándar en 5 ms y una red completa de 62 esclavos A/B en un máximo de 10 ms."},
-      {b:4, q:"¿Qué función realiza un maestro IO-Link como el NX-ILM400 de Omron en una arquitectura de comunicaciones?", opts:["Solo alimenta los sensores","Convierte señales de RS-485 a Ethernet","Sustituye al PLC en el control del proceso","Interconecta sensores y actuadores IO-Link punto a punto con la red de nivel superior (EtherCAT, PROFINET, etc.), actuando como pasarela entre niveles"], ans:3, exp:"El maestro IO-Link actúa como enlace entre el nivel de sensor/actuador inteligente y el bus de campo principal (como EtherCAT en Omron)."},
-      {b:4, q:"En una red PROFIBUS DP, ¿cuántas direcciones de estación son posibles en total con repetidores?", opts:["64","32","126","255"], ans:2, exp:"PROFIBUS DP admite direcciones de estación de 0 a 125 (126 nodos en total) segmentadas mediante repetidores RS-485 cada 32 dispositivos."},
-      {b:4, q:"¿Cuál es el conector estándar de PROFIBUS DP y qué pines llevan las señales de datos?", opts:["DB-9 con pin 3 (B, rojo) y pin 8 (A, verde)","RJ-45 con pines 1-2 y 3-6","USB tipo B","M12 con 4 pines codificación D"], ans:0, exp:"El conector Sub-D de 9 pines de PROFIBUS DP emplea el pin 3 para la línea RxD/TxD-P (rojo, B) y el pin 8 para RxD/TxD-N (verde, A)."},
-      {b:4, q:"¿Cuál es la distancia máxima de un segmento PROFIBUS DP a 12 Mbit/s?", opts:["100 metros","500 metros","1200 metros","20 metros"], ans:0, exp:"A la máxima velocidad de 12 Mbit/s, la longitud máxima de un segmento de cobre PROFIBUS DP sin repetidores es de 100 metros."},
-      {b:4, q:"Tras reparar un conector suelto en una red PROFIBUS DP, ¿cuál es el primer paso para restablecer el funcionamiento?", opts:["Cambiar el archivo GSD del esclavo","Verificar que el esclavo vuelve a aparecer en línea en el diagnóstico del maestro y comprobar el intercambio de datos","Reformatear la tarjeta de memoria del PLC","Reinstalar TIA Portal en el PC de programación"], ans:1, exp:"Una vez restablecida la continuidad física, se comprueba en el diagnóstico online del maestro que la estación vuelve a ser accesible e intercambia E/S."},
+      {b:4, q:"Al seleccionar un variador de frecuencia para una red PROFINET, ¿qué dato técnico del catálogo confirma que soporta comunicación cíclica RT?", opts:["Solo el voltaje nominal","La especificación de conformance class PROFINET (p. ej. CC-B o CC-C) y el archivo GSDML disponible para descarga","El peso en kilogramos","El color de la carcasa"], ans:1, exp:"Las Conformance Classes (CC-A, CC-B, CC-C) certifican el nivel de funciones PROFINET soportadas y requieren su archivo GSDML oficial."},
+      {b:4, q:"¿Qué información debe incluir la leyenda de un diagrama de bloques funcionales de una red industrial?", opts:["El precio de cada componente","Solo los nombres de los equipos","Los símbolos utilizados, el protocolo de cada enlace, las direcciones/nombres de estación, y la velocidad de comunicación","Solo el logotipo del fabricante"], ans:2, exp:"La leyenda garantiza que cualquier técnico interprete inequívocamente la simbología, buses, direccionamiento y tasas de transmisión."},
+      {b:4, q:"¿Qué elemento aparece en el diagrama de bloques funcionales de la práctica EtherNet/IP que NO aparecía en la práctica cableada?", opts:["El robot","El PLC","Los pulsadores","El switch Ethernet como nodo central de la red"], ans:3, exp:"La arquitectura EtherNet/IP introduce un conmutador Ethernet (SW) como nodo central que interconecta PLC, robot y PC."},
+      {b:4, q:"En un esquema de bloques funcionales de comunicación industrial, ¿qué símbolo se utiliza habitualmente para representar una pasarela entre dos protocolos diferentes?", opts:["GW (Gateway)","RB (Robot)","VF (Variador de frecuencia)","SW (Switch)"], ans:0, exp:"GW identifica a un Gateway o pasarela encargada de traducir datos entre dos redes o protocolos industriales distintos."},
+      {b:4, q:"¿Para qué se utilizan las VLANs en una red industrial con múltiples protocolos?", opts:["Para eliminar la necesidad de switches","Para aumentar la velocidad física del cable","Para segmentar el tráfico de diferentes protocolos (p.ej. PROFINET y EtherNet/IP) en la misma infraestructura física, mejorando el rendimiento y la seguridad","Para convertir Ethernet en RS-485"], ans:2, exp:"Las redes virtuales (IEEE 802.1Q) aíslan lógicamente dominios de difusión y protocolos industriales sobre un mismo backbone de switches gestionados."},
 
-      // ===================== BLOQUE 5 (100–127) =====================
-      {b:5, q:"En el diagrama de bloques funcionales, ¿qué símbolo se usa para un maestro IO-Link como el NX-ILM400 de Omron?", opts:["IOL-M","SW","PLC","GW"], ans:0, exp:"La abreviatura normalizada IOL-M identifica a un maestro IO-Link que concentra sensores/actuadores hacia el bus superior."},
-      {b:5, q:"Al representar mediante bloques funcionales una red con un PLC S7-1200 que controla un variador por PROFINET y un robot por EtherNet/IP, ¿cuántos protocolos diferentes aparecen en el esquema?", opts:["Solo 1 si se usa el mismo switch","2 (PROFINET para el variador, EtherNet/IP para el robot)","3 (PROFINET, EtherNet/IP y PROFIBUS)","1 (todo es Ethernet)"], ans:1, exp:"Aunque compartan infraestructura física Ethernet, a nivel de aplicación coexisten dos protocolos industriales distintos: PROFINET IO y EtherNet/IP."},
+      // ===================== BLOQUE 5: DIAGNÓSTICO DE AVERÍAS, MANTENIMIENTO, PARTES Y CIBERSEGURIDAD (110–138) =====================
       {b:5, q:"¿Cuál de los siguientes campos NO es obligatorio en un registro (parte) de avería estándar?", opts:["Tiempo de parada de la máquina","Fecha y hora de la incidencia","Causa raíz identificada","Marca y modelo del osciloscopio utilizado"], ans:3, exp:"Un parte estándar exige fecha/hora, equipo, síntoma, causa raíz, acción correctiva, tiempo de parada y valoración, pero no la marca concreta del instrumento."},
+      {b:5, q:"Tras restablecer el funcionamiento de un esclavo PROFIBUS DP, ¿qué indicador confirma que la comunicación se ha recuperado completamente?", opts:["Que la velocidad sea exactamente 9600 baud","Solo que el LED de alimentación esté verde","Que el esclavo aparezca en línea en el diagnóstico del maestro, que el intercambio de datos cíclicos funcione y que no haya errores en el buffer de diagnóstico","Que el cable sea de color violeta"], ans:2, exp:"La recuperación total exige estado online en el diagnóstico del maestro, actualización de datos cíclicos y ausencia de eventos de error activos."},
+      {b:5, q:"En una red PROFIBUS DP, se detectan errores intermitentes de comunicación en todo el segmento. Las terminaciones están correctas. ¿Cuál es la acción de reparación más probable?", opts:["Cambiar todos los esclavos","Buscar un punto de daño en el cable (empalme defectuoso, aplastamiento, proximidad a fuentes EMI) y reparar o reencaminar el tramo afectado","Reducir la velocidad a 9600 baud","Añadir más esclavos al segmento"], ans:1, exp:"Fallos globales intermitentes con terminadores correctos suelen deberse a degradación física del bus RS-485 o acoplamiento de interferencias electromagnéticas."},
       {b:5, q:"¿Cuál es el principal riesgo de conectar una red industrial directamente a Internet sin medidas de seguridad?", opts:["Se expone el control de procesos a ciberataques, pudiendo provocar paradas o daños en la instalación","Solo aumenta ligeramente la latencia de comunicación","No hay ningún riesgo si se usa cable apantallado","Solo afecta a la velocidad de descarga de archivos"], ans:0, exp:"La exposición directa permite accesos no autorizados a PLCs y robots, comprometiendo la disponibilidad del proceso y la seguridad física."},
-      {b:5, q:"En un diagrama de bloques funcionales de la célula robot, ¿qué elemento representa al PLC S7-1200?", opts:["IOL-M (Maestro IO-Link)","PLC (Controlador lógico programable)","VF (Variador de frecuencia)","GW (Gateway)"], ans:1, exp:"El bloque PLC identifica al controlador lógico programable encargado de la coordinación secuencial de la célula."},
+      {b:5, q:"En una red PROFINET, un IO-Device ha dejado de comunicar tras una tormenta eléctrica. El LED de enlace Ethernet está apagado. ¿Cuál es la acción de reparación más adecuada?", opts:["Reiniciar el switch 5 veces","Comprobar si el puerto Ethernet del dispositivo está dañado; si es así, sustituir el dispositivo o su módulo de comunicación","Cambiar la topología de estrella a anillo","Cambiar el archivo GSDML"], ans:1, exp:"Las sobretensiones transitorias suelen dañar el transceptor físico (PHY) del puerto RJ-45, dejando el LED Link apagado y obligando a sustituir el módulo."},
       {b:5, q:"¿Cuál de los siguientes campos debe incluirse SIEMPRE en un parte de avería según las buenas prácticas industriales?", opts:["La temperatura ambiente del taller","El color del cable que falló","La valoración económica del tiempo de parada y de los repuestos utilizados","El nombre del fabricante del polímetro"], ans:2, exp:"Cuantificar el coste de parada y materiales es esencial para gestionar indicadores de mantenimiento y justificar mejoras preventivas."},
-      {b:5, q:"En un esquema de bloques funcionales, ¿qué símbolo representa a un variador de frecuencia?", opts:["PLC","IOL-M","SW","VF"], ans:3, exp:"Las siglas VF identifican al variador de frecuencia (convertidor de velocidad de motores) en los esquemas de bloques."},
-      {b:5, q:"Al representar mediante bloques funcionales una red con PROFIBUS DP que conecta a través de un acoplador DP/PA a instrumentación de zona Ex, ¿cuántos niveles de la pirámide se abarcan?", opts:["Solo el nivel sensor/actuador","Solo el nivel de campo","Dos niveles: campo (PROFIBUS DP) y sensor/actuador (PROFIBUS PA en zona Ex)","Los tres niveles completos (campo, célula y gestión)"], ans:2, exp:"PROFIBUS DP opera en el nivel de campo y PROFIBUS PA desciende al nivel de instrumentación/sensor-actuador en atmósferas explosivas."},
       {b:5, q:"¿Cuál de las siguientes es una avería de naturaleza física?", opts:["Archivo GSD incorrecto cargado en TIA Portal","Versión de firmware incompatible entre maestro y esclavo","Nombre de estación PROFINET mal escrito","Cable de red Ethernet con un par cortado internamente"], ans:3, exp:"La rotura de conductores, conectores o fallos de alimentación pertenecen a la capa física del medio de transmisión."},
       {b:5, q:"¿Qué diferencia hay entre el campo \"síntoma\" y el campo \"causa raíz\" en un parte de avería?", opts:["La causa raíz se escribe primero y el síntoma después","El síntoma es lo que se observa (ej: \"LED BF rojo, el esclavo no comunica\"); la causa raíz es el motivo real del fallo (ej: \"conector DB-9 con pin 3 partido por fatiga mecánica\")","El síntoma es más importante que la causa raíz","Son lo mismo, se pueden usar indistintamente"], ans:1, exp:"El síntoma describe la manifestación externa visible del problema, mientras que la causa raíz identifica el origen físico o lógico que lo provocó."},
-      {b:5, q:"¿Qué criterios principales se deben considerar al seleccionar equipos para una red industrial, según la documentación técnica de los fabricantes?", opts:["Protocolo compatible, velocidad necesaria, número de puntos de E/S, distancia máxima, condiciones ambientales (temperatura, IP, zona Ex) y disponibilidad de archivos de descripción (GSD/GSDML/EDS/IODD)","Solo el precio más bajo","Solo que sea de la misma marca que el PLC","El color de la carcasa y el tamaño"], ans:0, exp:"La selección técnica exige verificar compatibilidad de protocolo, prestaciones temporales, capacidad de E/S, entorno industrial y ficheros de integración."},
+      {b:5, q:"Un sensor IO-Link muestra datos de proceso correctos pero el maestro indica \"parámetros no válidos\". ¿Qué síntoma sugiere?", opts:["El sensor se ha sustituido por uno del mismo modelo pero con firmware diferente, y los parámetros de backup no son compatibles","La red Ethernet del nivel superior está caída","El cable de 3 hilos está cortado","El maestro IO-Link está apagado"], ans:0, exp:"La función Data Storage del maestro IO-Link intenta restaurar parámetros guardados, pero falla si la revisión de firmware/perfil del sensor nuevo difiere."},
+      {b:5, q:"En una red PROFINET con topología en anillo MRP, el anillo se ha abierto por un cable cortado pero la comunicación sigue funcionando. ¿Qué indica esto y qué acción se debe tomar?", opts:["MRP ha reconvertido el anillo en línea automáticamente, pero se ha perdido la redundancia; se debe reparar el cable cuanto antes para restaurar la protección del anillo","El anillo MRP no sirve para nada","No hay que hacer nada, el anillo siempre funciona con un corte","Hay que reiniciar todos los switches"], ans:0, exp:"El gestor MRP cierra el puerto de redundancia en menos de 200 ms manteniendo la producción, pero deja la red sin tolerancia ante un segundo fallo."},
+      {b:5, q:"Clasifica la siguiente avería: \"El nombre de estación de un IO-Device PROFINET se ha borrado tras un reseteo de fábrica\". Es una avería de naturaleza:", opts:["Mecánica","Electromagnética","Lógica (configuración)","Física"], ans:2, exp:"El cableado y el hardware están intactos; el fallo reside en la pérdida de un parámetro lógico de direccionamiento PROFINET (Device Name)."},
       {b:5, q:"Después de reparar un fallo en una red industrial, ¿cuál de los siguientes pasos forma parte de la comprobación final post-reparación?", opts:["Cambiar todas las contraseñas del sistema","Monitorizar el sistema durante un periodo para confirmar que el fallo no reaparece y documentar la reparación en el registro de averías","Desconectar los diagnósticos para que no molesten","Borrar todos los registros de avería anteriores"], ans:1, exp:"Toda intervención concluye validando la estabilidad en servicio real y dejando trazabilidad escrita en el histórico de mantenimiento."},
+      {b:5, q:"Tras sustituir un switch dañado en una red PROFINET, ¿qué comprobaciones se deben realizar para restablecer el funcionamiento?", opts:["Verificar que todos los IO-Devices vuelven a estar en línea, comprobar que no hay LEDs BF/SF en rojo, y confirmar el intercambio de datos en la tabla de observación","Recargar todos los programas RAPID","Reformatear todas las CPUs de la red","Solo encender el switch y esperar"], ans:0, exp:"Se debe verificar el enlace online de todos los dispositivos, la extinción de alarmas Bus Fault/System Fault y el refresco real de variables."},
       {b:5, q:"¿Cuál de las siguientes tecnologías permite el acceso remoto seguro a una red industrial desde el exterior?", opts:["Protocolo DCP","Cable de consola RS-232","VPN industrial con cifrado","VLAN de nivel 2"], ans:2, exp:"Una VPN industrial crea un túnel cifrado y autenticado sobre redes públicas para realizar telemantenimiento sin exponer los equipos."},
       {b:5, q:"¿Por qué el firmware y las versiones de software son un punto susceptible de avería en comunicaciones industriales?", opts:["Porque el firmware nunca se actualiza","Porque el firmware solo afecta al color de los LEDs","Porque una incompatibilidad de versiones entre maestro y esclavo puede impedir la comunicación o causar comportamiento errático, aunque el hardware esté correcto","Porque el firmware consume mucha energía"], ans:2, exp:"Las diferencias entre revisiones de firmware, archivos GSDML/EDS y librerías del PLC pueden generar rechazos de conexión pese a que el cableado sea correcto."},
       {b:5, q:"¿Cuál de los siguientes NO es un punto susceptible de avería típico en redes de comunicación industrial?", opts:["El algoritmo interno de la CPU del PLC","Resistencias de terminación de bus","Configuración de IP o nombre de estación","Cables y tendidos de red"], ans:0, exp:"Los fallos típicos de comunicaciones se localizan en conectores, cables, terminadores, alimentación, direccionamiento y compatibilidad, no en el firmware interno de cálculo de la CPU."},
-      {b:5, q:"En el diagrama de bloques funcionales de la célula robot con EtherNet/IP, ¿cuántos elementos de red principales aparecen?", opts:["PLC, variador, robot y HMI","Maestro PROFIBUS y 5 esclavos","PLC (escáner), switch Ethernet y robot (adaptador), más el PC de programación","Solo el PLC y el robot"], ans:2, exp:"La topología en estrella de la práctica EtherNet/IP interconecta tres equipos activos a través de un switch Ethernet: PLC, robot y PC."},
-      {b:5, q:"Al dibujar el esquema de bloques funcionales de la práctica cableada, ¿cómo se representa la conexión entre PLC y robot?", opts:["Con una línea Ethernet con símbolo de switch","Con una línea PROFIBUS violeta","Con una línea inalámbrica Wi-Fi","Con una línea de E/S digitales cableadas (manguera de señales discretas 24V)"], ans:3, exp:"Al no existir bus de campo entre ambos, el enlace se representa como un haz cableado de señales digitales discretas a 24 V DC."},
       {b:5, q:"¿Por qué es importante incluir la \"causa raíz\" y no solo el \"síntoma\" en el parte de avería?", opts:["Porque conocer la causa raíz permite aplicar acciones preventivas para evitar que la misma avería se repita, y mejora la fiabilidad del sistema a largo plazo","Porque es obligatorio por ley","Solo es importante si el equipo es muy caro","Porque es más bonito"], ans:0, exp:"Atacar solo el síntoma resuelve la parada puntual, pero identificar la causa raíz permite corregir el defecto de fondo y evitar recurrencias."},
       {b:5, q:"En una red industrial, ¿cuál de las siguientes herramientas se utiliza para diagnosticar problemas en la capa física del cable Ethernet?", opts:["Un navegador web","Un editor de texto","Un comprobador de cable (cable tester) o certificador de red","TIA Portal online"], ans:2, exp:"Un comprobador o certificador de cableado verifica continuidad, mapa de hilos, pares cruzados, cortocircuitos y atenuación física."},
       {b:5, q:"Un parte de avería registra: \"Fecha: 15/11/2026, Técnico: García, Equipo: Esclavo PROFIBUS #5, Síntoma: pérdida intermitente de comunicación, Diagnóstico: conector DB-9 con pin 8 partido, Causa raíz: fatiga mecánica por vibración de la máquina, Acción: sustituido conector, Tiempo de parada: 45 min, Valoración: 120 EUR (repuesto 15 + mano de obra 105)\". ¿Falta algún campo?", opts:["Falta el número de teléfono del fabricante","Falta la marca del polímetro","Falta el color del cable","No, el registro está completo con todos los campos obligatorios"], ans:3, exp:"Contiene identificación temporal y técnica, síntoma, diagnóstico, causa raíz, acción correctiva, tiempo de indisponibilidad y valoración económica."},
-      {b:5, q:"¿Qué información debe incluir la leyenda de un diagrama de bloques funcionales de una red industrial?", opts:["El precio de cada componente","Solo los nombres de los equipos","Los símbolos utilizados, el protocolo de cada enlace, las direcciones/nombres de estación, y la velocidad de comunicación","Solo el logotipo del fabricante"], ans:2, exp:"La leyenda garantiza que cualquier técnico interprete inequívocamente la simbología, buses, direccionamiento y tasas de transmisión."},
-      {b:5, q:"¿Qué elemento aparece en el diagrama de bloques funcionales de la práctica EtherNet/IP que NO aparecía en la práctica cableada?", opts:["El robot","El PLC","Los pulsadores","El switch Ethernet como nodo central de la red"], ans:3, exp:"La arquitectura EtherNet/IP introduce un conmutador Ethernet (SW) como nodo central que interconecta PLC, robot y PC."},
+      {b:5, q:"En una red PROFINET, un IO-Device muestra el LED SF (System Fault) en rojo fijo. ¿Qué indica?", opts:["El dispositivo está en modo de ahorro de energía","El dispositivo funciona correctamente","Existe un fallo de hardware o de configuración grave en el dispositivo","La comunicación RT está activa"], ans:2, exp:"El indicador SF (System Fault) alerta de un error interno del módulo, fallo de diagnóstico de canal o discrepancia de parametrización."},
       {b:5, q:"En el parte de averías, ¿por qué es importante registrar el tiempo de parada de la máquina?", opts:["Permite calcular la valoración económica del impacto, justificar inversiones en mantenimiento preventivo y calcular indicadores como MTTR y disponibilidad","Solo por curiosidad estadística","Es un requisito legal de la inspección de trabajo","Solo sirve para penalizar al técnico que tardó más"], ans:0, exp:"El tiempo de parada es la base para calcular el lucro cesante y los KPIs de mantenimiento (MTTR y disponibilidad operacional)."},
+      {b:5, q:"Clasifica la siguiente avería: \"Un segmento PROFIBUS DP tiene la resistencia de terminación activada en una estación intermedia\". Es una avería de naturaleza:", opts:["Lógica (error de software)","De firmware","Electromagnética (interferencia externa)","Física (configuración incorrecta del medio físico)"], ans:3, exp:"Activar la terminación en un nodo intermedio desadapta la impedancia de la línea RS-485 y corta la propagación eléctrica hacia el resto del tramo."},
       {b:5, q:"En un registro de avería, ¿qué información debe contener el campo \"acción correctiva\"?", opts:["Solo el nombre del técnico que intervino","La descripción detallada de la reparación realizada: qué se hizo, qué componente se sustituyó o qué configuración se cambió","Solo la fecha de la reparación","El precio del equipo nuevo"], ans:1, exp:"Debe detallar con precisión técnica la intervención ejecutada para resolver el problema y facilitar futuras consultas."},
       {b:5, q:"Según la norma IEC 62443, ¿cuál de las siguientes medidas es fundamental al implementar acceso VPN a una red industrial?", opts:["Usar el mismo segmento de red para oficinas e industria","Desactivar los cortafuegos para evitar latencia","Permitir acceso abierto para facilitar el mantenimiento remoto","Segmentar la red con zonas y conductos, cifrar las comunicaciones y limitar los accesos"], ans:3, exp:"La serie normativa IEC 62443 fundamenta la ciberseguridad industrial en la segmentación por zonas y conductos con control estricto de accesos."},
+      {b:5, q:"Tras reparar un conector suelto en una red PROFIBUS DP, ¿cuál es el primer paso para restablecer el funcionamiento?", opts:["Cambiar el archivo GSD del esclavo","Verificar que el esclavo vuelve a aparecer en línea en el diagnóstico del maestro y comprobar el intercambio de datos","Reformatear la tarjeta de memoria del PLC","Reinstalar TIA Portal en el PC de programación"], ans:1, exp:"Una vez restablecida la continuidad física, se comprueba en el diagnóstico online del maestro que la estación vuelve a ser accesible e intercambia E/S."},
       {b:5, q:"¿Cuál de las siguientes es una avería de naturaleza lógica en un sistema de comunicación industrial?", opts:["Cable cortado en un segmento RS-485","Conector DB-9 con pin suelto","Switch industrial sin alimentación","Dirección IP duplicada en la red"], ans:3, exp:"Un conflicto de direcciones IP es un error de configuración lógica de red que provoca colisiones de acceso aunque todo el hardware esté sano."},
       {b:5, q:"¿Cuál de las siguientes herramientas de diagnóstico opera en la capa de red (ping, Wireshark, web de gestión del switch)?", opts:["Un calibre de profundidad","Polímetro","Un destornillador aislado","Herramientas de diagnóstico de red: ping para comprobar conectividad IP, Wireshark para analizar tramas, y la interfaz web del switch para ver estado de puertos"], ans:3, exp:"Ping, analizadores de paquetes como Wireshark y la gestión web/SNMP de switches permiten diagnosticar conectividad, tramas y puertos a nivel lógico."},
-      {b:5, q:"En un esquema de bloques funcionales de comunicación industrial, ¿qué símbolo se utiliza habitualmente para representar una pasarela entre dos protocolos diferentes?", opts:["GW (Gateway)","RB (Robot)","VF (Variador de frecuencia)","SW (Switch)"], ans:0, exp:"GW identifica a un Gateway o pasarela encargada de traducir datos entre dos redes o protocolos industriales distintos."}
+      {b:5, q:"En una red Ethernet industrial, ¿por qué los switches son un punto susceptible de avería crítico?", opts:["Porque consumen mucha energía","Porque necesitan archivo GSD","Porque solo funcionan con un fabricante","Porque son el nodo central de la topología estrella: si falla un switch, todos los dispositivos conectados a él pierden comunicación"], ans:3, exp:"En topología en estrella el switch actúa como punto único de fallo para todos los nodos conectados a sus puertos."},
+      {b:5, q:"¿Cuál de los siguientes es uno de los 6 puntos susceptibles de avería típicos en redes de comunicación industrial?", opts:["El programa del PLC (lógica de usuario)","El software de programación del PC","La pantalla del HMI","Los conectores y terminales de cableado"], ans:3, exp:"Los conectores y terminales (DB-9, RJ-45, M12, borneros) son uno de los seis puntos clásicos de fallo junto con cables, terminadores, alimentación, configuración y compatibilidad."}
     ];
 
     /**
@@ -967,7 +1007,8 @@
     const STORAGE_KEYS = {
       ACTIVE_USER: "fpquiz_coi_active_user",
       PROFILES: "fpquiz_coi_profiles",
-      HISTORY: "fpquiz_coi_history",
+      HISTORY: "coi_history",
+      LEGACY_HISTORY: "fpquiz_coi_history",
       THEME: "fpquiz_coi_theme"
     };
 
@@ -1111,6 +1152,8 @@
           updateCloudStatusUI();
           if (state.currentView === "ranking") {
             renderRankingView();
+          } else if (state.currentView === "history") {
+            renderHistoryView();
           }
         },
         (error) => {
@@ -1309,7 +1352,7 @@
 
     function switchView(viewName) {
       state.currentView = viewName;
-      const views = ["home", "quiz", "results", "syllabus", "ranking"];
+      const views = ["home", "quiz", "results", "syllabus", "ranking", "history"];
       views.forEach((v) => {
         const el = document.getElementById(`view-${v}`);
         if (el) {
@@ -1338,9 +1381,13 @@
       if (viewName === "ranking") {
         updateCloudStatusUI();
         renderRankingView();
+      }
+      if (viewName === "history") {
         renderHistoryView();
       }
-      if (viewName === "syllabus") renderHomeBlocksAndIndex();
+      if (viewName === "syllabus") {
+        renderHomeBlocksAndIndex();
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -1353,7 +1400,7 @@
       const totalQuestions = QUESTIONS.length;
 
       document.getElementById("home-subtitle").textContent =
-        `Banco completo de ${totalQuestions} preguntas únicas sobre células robotizadas, PROFINET, buses de campo, arquitectura y diagnóstico.`;
+        `Banco completo de ${totalQuestions} preguntas únicas con explicación técnica sobre buses de campo, célula ABB cableada y EtherNet/IP, arquitectura y diagnóstico.`;
       document.getElementById("index-total-badge").textContent = `${totalQuestions} preguntas en total`;
 
       const grid = document.getElementById("blocks-selector-grid");
@@ -1436,12 +1483,12 @@
       const startBtn = document.getElementById("start-quiz-btn");
 
       if (poolSize === 0) {
-        hint.textContent = "0 preguntas seleccionadas en los bloques activos";
+        hint.textContent = "0 preguntas disponibles en los bloques seleccionados";
         warning.classList.remove("hidden");
         startBtn.disabled = true;
         startBtn.classList.add("opacity-50", "cursor-not-allowed");
       } else {
-        hint.textContent = `${poolSize} preguntas seleccionadas en los bloques activos`;
+        hint.textContent = `${poolSize} preguntas disponibles en los bloques seleccionados`;
         warning.classList.add("hidden");
         startBtn.disabled = false;
         startBtn.classList.remove("opacity-50", "cursor-not-allowed");
@@ -1631,7 +1678,7 @@
       if (isPracticeLocked) {
         feedbackBox.classList.remove("hidden");
         const expText = question.exp
-          ? `<p class="mt-1.5 text-xs opacity-95">💡 <strong>Explicación:</strong> ${escapeHTML(question.exp)}</p>`
+          ? `<p class="mt-1.5 text-xs opacity-95">💡 <strong>Explicación técnica:</strong> ${escapeHTML(question.exp)}</p>`
           : "";
         if (chosen === question.ans) {
           feedbackBox.className =
@@ -1776,12 +1823,22 @@
         } else {
           savedBadge.className =
             "inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800";
-          savedBadge.textContent = "✓ Resultado guardado en respaldo local";
+          savedBadge.textContent = "✓ Resultado guardado en respaldo local (coi_history)";
         }
       } else {
         savedBadge.className =
           "inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800";
-        savedBadge.textContent = "✓ Resultado guardado en respaldo local";
+        savedBadge.textContent = "✓ Resultado guardado en respaldo local (coi_history)";
+      }
+    }
+
+    function getLocalHistory() {
+      try {
+        const current = JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || "[]");
+        const legacy = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEGACY_HISTORY) || "[]");
+        return [...current, ...legacy];
+      } catch {
+        return [];
       }
     }
 
@@ -1878,13 +1935,13 @@
           let borderClass = "";
 
           if (status === "correct") {
-            statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-[#16a34a] dark:bg-green-950 dark:text-green-400">✓ Acertada</span>`;
+            statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-[#16a34a] dark:bg-green-950 dark:text-green-400">✓ Correcta</span>`;
             borderClass = "border-green-200 dark:border-green-900/70";
           } else if (status === "incorrect") {
             statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-[#dc2626] dark:bg-red-950 dark:text-red-400">✕ Fallada</span>`;
             borderClass = "border-red-200 dark:border-red-900/70";
           } else {
-            statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">− Sin responder</span>`;
+            statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">− En blanco</span>`;
             borderClass = "border-slate-200 dark:border-slate-800";
           }
 
@@ -1918,7 +1975,7 @@
 
           const expHtml = q.exp
             ? `<div class="mt-3 p-3 rounded-lg bg-blue-50/60 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/60 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                💡 <strong>Explicación:</strong> ${escapeHTML(q.exp)}
+                💡 <strong>Explicación técnica:</strong> ${escapeHTML(q.exp)}
               </div>`
             : "";
 
@@ -1947,14 +2004,6 @@
        VISTAS DE RANKING GLOBAL Y MI HISTORIAL
        ===================================================================== */
 
-    function getLocalHistory() {
-      try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || "[]");
-      } catch {
-        return [];
-      }
-    }
-
     function normalizeRecord(raw) {
       return {
         nombre: String(raw.nombre || raw.user || "Anónimo").trim(),
@@ -1967,6 +2016,7 @@
         tiempoSegundos: Number(raw.tiempoSegundos ?? raw.timeSeconds ?? 0),
         tiempoTexto: raw.tiempoTexto || formatTime(raw.tiempoSegundos ?? raw.timeSeconds ?? 0),
         bloques: raw.bloques || raw.blocks || "COI",
+        modo: raw.modo || "Examen",
         fechaISO: raw.fechaISO || raw.date || "",
         fechaTexto: raw.fechaTexto || formatDate(raw.fechaISO || raw.date || "")
       };
@@ -2008,7 +2058,8 @@
             const nextCount = currentBest.intentos + 1;
             const isBetter =
               rec.nota > currentBest.nota ||
-              (rec.nota === currentBest.nota && rec.tiempoSegundos < currentBest.tiempoSegundos);
+              (rec.nota === currentBest.nota && rec.correctas > currentBest.correctas) ||
+              (rec.nota === currentBest.nota && rec.correctas === currentBest.correctas && rec.tiempoSegundos < currentBest.tiempoSegundos);
             if (isBetter) {
               bestByStudent.set(key, { ...rec, intentos: nextCount });
             } else {
@@ -2019,9 +2070,10 @@
         records = [...bestByStudent.values()];
       }
 
-      // Ordenar por Nota (/10) descendente y menor tiempo ascendente
+      // Ordenar por Nota descendente, correctas descendente y menor tiempo ascendente
       records.sort((a, b) => {
         if (b.nota !== a.nota) return b.nota - a.nota;
+        if (b.correctas !== a.correctas) return b.correctas - a.correctas;
         return a.tiempoSegundos - b.tiempoSegundos;
       });
 
@@ -2110,6 +2162,18 @@
         (b.fechaISO || "").localeCompare(a.fechaISO || "")
       );
 
+      // Estadísticas personales
+      document.getElementById("hist-stat-count").textContent = userAttempts.length;
+      if (userAttempts.length > 0) {
+        const avg = userAttempts.reduce((acc, item) => acc + item.nota, 0) / userAttempts.length;
+        const best = Math.max(...userAttempts.map((item) => item.nota));
+        document.getElementById("hist-stat-avg").textContent = avg.toFixed(2);
+        document.getElementById("hist-stat-best").textContent = best.toFixed(2);
+      } else {
+        document.getElementById("hist-stat-avg").textContent = "0.00";
+        document.getElementById("hist-stat-best").textContent = "0.00";
+      }
+
       const emptyBox = document.getElementById("history-empty");
       const tableWrapper = document.getElementById("history-table-wrapper");
       const tbody = document.getElementById("history-table-body");
@@ -2134,6 +2198,9 @@
               </td>
               <td class="py-3.5 px-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
                 ${escapeHTML(item.bloques)}
+              </td>
+              <td class="py-3.5 px-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                ${escapeHTML(item.modo)}
               </td>
               <td class="py-3.5 px-4">
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold ${
@@ -2189,10 +2256,8 @@
         error.classList.add("hidden");
         saveUserProfile(val);
         hideWelcomeScreen();
-        if (state.currentView === "ranking") {
-          renderRankingView();
-          renderHistoryView();
-        }
+        if (state.currentView === "ranking") renderRankingView();
+        if (state.currentView === "history") renderHistoryView();
       });
 
       document.getElementById("previous-users-list").addEventListener("click", (e) => {
@@ -2200,10 +2265,8 @@
         if (!btn) return;
         saveUserProfile(btn.getAttribute("data-quick-user"));
         hideWelcomeScreen();
-        if (state.currentView === "ranking") {
-          renderRankingView();
-          renderHistoryView();
-        }
+        if (state.currentView === "ranking") renderRankingView();
+        if (state.currentView === "history") renderHistoryView();
       });
 
       document.getElementById("change-user-btn").addEventListener("click", () => {
@@ -2376,13 +2439,19 @@
           `Se eliminarán los registros locales de "${state.user}" guardados en este navegador.`,
           "Borrar historial",
           () => {
-            const all = getLocalHistory();
-            const remaining = all.filter(
-              (item) =>
-                !(item.nombre || item.user) ||
-                (item.nombre || item.user).toLowerCase() !== state.user.toLowerCase()
-            );
-            localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(remaining));
+            const filterOutUser = (storageKey) => {
+              try {
+                const list = JSON.parse(localStorage.getItem(storageKey) || "[]");
+                const remaining = list.filter(
+                  (item) =>
+                    !(item.nombre || item.user) ||
+                    (item.nombre || item.user).toLowerCase() !== state.user.toLowerCase()
+                );
+                localStorage.setItem(storageKey, JSON.stringify(remaining));
+              } catch {}
+            };
+            filterOutUser(STORAGE_KEYS.HISTORY);
+            filterOutUser(STORAGE_KEYS.LEGACY_HISTORY);
             renderHistoryView();
           }
         );
